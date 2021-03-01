@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2018/dev/Debian) (preloaded format=pdflatex 2018.5.24)  1 MAR 2021 21:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2018/dev/Debian) (preloaded format=pdflatex 2018.5.24)  1 MAR 2021 21:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1031,29 +1031,29 @@ File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 (./presentation.nav) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+msa on input line 41.
+LaTeX Font Info:    Try loading font information for U+msa on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 41.
+LaTeX Font Info:    Try loading font information for U+msb on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 41.
+line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 56.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 52.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (140.21425pt too wide) in paragraph at lines 56--56
+Overfull \hbox (140.21425pt too wide) in paragraph at lines 52--52
  [] 
  []
 
@@ -1081,11 +1081,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 83.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 83.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 87.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 87.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 83.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 83.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 6FA6D15D5D403938373DE2669A3A423A;242.
 
@@ -1096,7 +1096,7 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  18238 strings out of 494843
  341213 string characters out of 6179106
- 411099 words of memory out of 5000000
+ 411083 words of memory out of 5000000
  21102 multiletter control sequences out of 15000+600000
  15702 words of font info for 45 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
@@ -1108,9 +1108,9 @@ pk> </home/shane/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1095.60
 600pk> </home/shane/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1440
 .600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam1
 0.pfb>
-Output written on presentation.pdf (6 pages, 59934 bytes).
+Output written on presentation.pdf (6 pages, 59455 bytes).
 PDF statistics:
- 372 PDF objects out of 1000 (max. 8388607)
+ 371 PDF objects out of 1000 (max. 8388607)
  213 compressed objects within 3 object streams
  27 named destinations out of 1000 (max. 500000)
  75 words of extra memory for PDF output out of 10000 (max. 10000000)

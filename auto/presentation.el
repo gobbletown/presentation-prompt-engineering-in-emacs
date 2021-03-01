@@ -32,9 +32,9 @@
     "capt-of"
     "hyperref")
    (LaTeX-add-labels
-    "sec:org9fbdc94"
-    "sec:orgcc095ef"
-    "sec:org82262f0"
-    "sec:org4be7dbe"))
+    "sec:org67790be"
+    "sec:org0ccc55f"
+    "sec:org44d37b2"
+    "sec:org04355f3"))
  :latex)
 
