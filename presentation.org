@@ -93,4 +93,5 @@ completion must be below 2048 tokens (roughly
 - declarative, like =html=
 - stochastic, like =problog=
 - Unlocks new types of applications
+- Speeds up development
 #+latex: }
