@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org6287312}
-\begin{frame}[label={sec:org5cc3b11},fragile]{Following along}
+\label{sec:org59906e6}
+\begin{frame}[label={sec:org94d3b14},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -54,10 +54,10 @@ github1s.com/semiosis/prompt-engineering-patterns\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org8f97a42}
+\label{sec:org67c9f78}
 \subsection{GPT-3}
-\label{sec:org229030d}
-\begin{frame}[label={sec:orgc3eff30},fragile]{Text Generator}
+\label{sec:orgcb932b2}
+\begin{frame}[label={sec:orgaf93384},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -97,9 +97,11 @@ information explicit.
 \end{block}
 \end{frame}
 
+\section{\texttt{pen.el}}
+\label{sec:org8960a62}
 \subsection{A new programming paradigm}
-\label{sec:org3b0414e}
-\begin{frame}[label={sec:org9c133ed}]{Prompt Engineering}
+\label{sec:orgea364e2}
+\begin{frame}[label={sec:org1a5eb7f}]{Prompt Engineering}
 {\footnotesize
 \begin{itemize}
 \item declarative
@@ -115,6 +117,6 @@ information explicit.
 }
 \end{frame}
 
-\subsection{}
-\label{sec:orgf020a19}
+\subsection{Emacs}
+\label{sec:org5e741a9}
 \end{document}
