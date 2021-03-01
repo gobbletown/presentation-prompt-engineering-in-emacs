@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 11:16
+% Created 2021-03-02 Tue 12:19
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:orgf083607}
-\begin{frame}[label={sec:org2df968d}]{Repositories for following along}
+\label{sec:org45f7082}
+\begin{frame}[label={sec:org7d38c6e}]{Repositories for following along}
 {\footnotesize
 \begin{center}
 \begin{tabular}{l}
@@ -45,10 +45,16 @@
 }
 \end{frame}
 
+\begin{frame}[label={sec:org9e5beb3},fragile]{Demo}
+ \begin{verbatim}
+1  ssh -oBatchMode=no shane@124.197.60.232 -p 9922
+\end{verbatim}
+\end{frame}
+
 \section{Preliminaries}
-\label{sec:org629ed9f}
+\label{sec:org84afd27}
 \subsection{Background Knowledge}
-\label{sec:org1065c2b}
+\label{sec:orgd29b3a7}
 \begin{itemize}
 \item \texttt{GPT-3} is a \texttt{seq2seq} model
 A text generator.
@@ -58,7 +64,7 @@ but configurable to be deterministic.
 \end{itemize}
 \end{itemize}
 
-\begin{frame}[label={sec:org0169f84}]{Key concepts}
+\begin{frame}[label={sec:orgfaf1f8c}]{Key concepts}
 \begin{itemize}
 \item prompt,
 \item completion, and
@@ -66,31 +72,42 @@ but configurable to be deterministic.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org7448e54}]{Limitation}
-Combined, the text prompt and generated
+\begin{frame}[label={sec:orged7f92c},fragile]{Limitation}
+ Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 \textasciitilde{}1500 words).
+
+\begin{verbatim}
+1  context-stuffing
+2      [#prompt engineering]
+3  
+4      With only 2048 tokens, you need to make
+5      use of your real estate by providing
+6      instructions and making implicit
+7      information explicit.
+\end{verbatim}
 \end{frame}
 
-\begin{frame}[label={sec:org36a9117}]{Search engine vs Database}
+\subsection{A new programming paradigm}
+\label{sec:org7aca54a}
 \begin{itemize}
-\item \uline{Relational Databases} use a \uline{B-Tree index}.
-\item \alert{Search engines} mostly use \alert{inverted index}.q
-\item \uline{Relational Databases} give you what you \uline{asked for}.
-\item \alert{Search engines} give you what you \alert{wanted}.
+\item declarative
+\begin{itemize}
+\item Like html
 \end{itemize}
-\end{frame}
-
-\begin{frame}[label={sec:org914b2c6}]{Terminology}
-\begin{description}
-\item[{\uline{Indices}}] = indexes. Indexes just sounds wrong to me.
-\item[{\uline{Model}}] The \alert{set of functions} that describe the relations between variables.
-\end{description}
+\item stochastic
+\begin{itemize}
+\item Like problog
+\end{itemize}
+\item Unlocks new types of applications
+\end{itemize}
 
 \begin{quote}
 "Probabilistic and information theoretic methods are used to make results better anyway.
 Compromises are made anyway. Query reformulation, drift, etc.
 So it is just a natural progression to use NNs for some of these components? Am I right." -- A quote from myself.
 \end{quote}
-\end{frame}
+
+\subsection{}
+\label{sec:org007cd65}
 \end{document}

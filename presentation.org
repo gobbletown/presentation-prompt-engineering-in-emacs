@@ -40,7 +40,8 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 #+ATTR_LATEX: :center nil
 
 * Presentation
-*** Repositories for following along
+*** Following along
+**** Repositories for following along
 #+latex: {\footnotesize
 | http://github.com/mullikine/presentation-prompt-engineering-in-emacs |
 | http://github.com/semiosis/examplary                                 |
@@ -49,7 +50,7 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 | http://github.com/semiosis/prompt-engineering-patterns               |
 #+latex: }
 
-*** Demo
+**** Demo
 #+BEGIN_SRC bash -n :i bash :async :results verbatim code
   ssh -oBatchMode=no shane@124.197.60.232 -p 9922
 #+END_SRC
