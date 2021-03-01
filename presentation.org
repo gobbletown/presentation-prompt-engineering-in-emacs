@@ -56,18 +56,20 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 #+END_SRC
 
 * Preliminaries
-** Background Knowledge
+** GPT-3
+*** Text Generator
+**** Background knowledge
 - =GPT-3= is a =seq2seq= model
   A text generator.
   - It's stochastic
     but configurable to be deterministic.
 
-*** Key concepts
+**** Key concepts
 - prompt,
 - completion, and
 - tokens
 
-*** Limitation
+**** Limitations
 Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 ~1500 words).
