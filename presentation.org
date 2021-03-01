@@ -74,6 +74,7 @@ Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 ~1500 words).
 
+#+latex: {\footnotesize
 #+BEGIN_SRC text -n :async :results verbatim code
   context-stuffing
       [#prompt engineering]
@@ -83,6 +84,7 @@ completion must be below 2048 tokens (roughly
       instructions and making implicit
       information explicit.
 #+END_SRC
+#+latex: }
 
 ** A new programming paradigm
 - declarative

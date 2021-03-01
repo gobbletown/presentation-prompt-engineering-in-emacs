@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 12:20
+% Created 2021-03-02 Tue 12:21
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,17 +30,17 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org53ca807}
-\begin{frame}[label={sec:org2223ddc},fragile]{Following along}
+\label{sec:org47b44d6}
+\begin{frame}[label={sec:org9ba435c},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
 \begin{tabular}{l}
-\url{http://github.com/mullikine/presentation-prompt-engineering-in-emacs}\\
-\url{http://github.com/semiosis/examplary}\\
-\url{http://github.com/semiosis/pen.el}\\
-\url{http://github.com/semiosis/prompts}\\
-\url{http://github.com/semiosis/prompt-engineering-patterns}\\
+github1s.com/mullikine/presentation-prompt-engineering-in-emacs\\
+github1s.com/semiosis/examplary\\
+github1s.com/semiosis/pen.el\\
+github1s.com/semiosis/prompts\\
+github1s.com/semiosis/prompt-engineering-patterns\\
 \end{tabular}
 \end{center}
 }
@@ -54,9 +54,9 @@
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:orgb896aaa}
+\label{sec:org64dbdc2}
 \subsection{Background Knowledge}
-\label{sec:orga14ab24}
+\label{sec:orgd799c78}
 \begin{itemize}
 \item \texttt{GPT-3} is a \texttt{seq2seq} model
 A text generator.
@@ -66,7 +66,7 @@ but configurable to be deterministic.
 \end{itemize}
 \end{itemize}
 
-\begin{frame}[label={sec:org63a77ed}]{Key concepts}
+\begin{frame}[label={sec:orga6dd864}]{Key concepts}
 \begin{itemize}
 \item prompt,
 \item completion, and
@@ -74,7 +74,7 @@ but configurable to be deterministic.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orge067e3c},fragile]{Limitation}
+\begin{frame}[label={sec:orgc9e4818},fragile]{Limitation}
  Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 \textasciitilde{}1500 words).
@@ -91,7 +91,7 @@ completion must be below 2048 tokens (roughly
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:org7b0b10d}
+\label{sec:orgcd0b8b3}
 \begin{itemize}
 \item declarative
 \begin{itemize}
@@ -111,5 +111,5 @@ So it is just a natural progression to use NNs for some of these components? Am 
 \end{quote}
 
 \subsection{}
-\label{sec:org13a6e81}
+\label{sec:orgb98ec94}
 \end{document}

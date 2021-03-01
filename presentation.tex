@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 12:21
+% Created 2021-03-02 Tue 12:23
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org47b44d6}
-\begin{frame}[label={sec:org9ba435c},fragile]{Following along}
+\label{sec:orga68f6c0}
+\begin{frame}[label={sec:org4c9d805},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -54,9 +54,11 @@ github1s.com/semiosis/prompt-engineering-patterns\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org64dbdc2}
-\subsection{Background Knowledge}
-\label{sec:orgd799c78}
+\label{sec:org50658b9}
+\subsection{GPT-3}
+\label{sec:orge757ef9}
+\begin{frame}[label={sec:org1b35454},fragile]{Text Generator}
+ \begin{block}{Background knowledge}
 \begin{itemize}
 \item \texttt{GPT-3} is a \texttt{seq2seq} model
 A text generator.
@@ -65,17 +67,18 @@ A text generator.
 but configurable to be deterministic.
 \end{itemize}
 \end{itemize}
+\end{block}
 
-\begin{frame}[label={sec:orga6dd864}]{Key concepts}
+\begin{block}{Key concepts}
 \begin{itemize}
 \item prompt,
 \item completion, and
 \item tokens
 \end{itemize}
-\end{frame}
+\end{block}
 
-\begin{frame}[label={sec:orgc9e4818},fragile]{Limitation}
- Combined, the text prompt and generated
+\begin{block}{Limitations}
+Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 \textasciitilde{}1500 words).
 
@@ -88,10 +91,11 @@ completion must be below 2048 tokens (roughly
 6      instructions and making implicit
 7      information explicit.
 \end{verbatim}
+\end{block}
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:orgcd0b8b3}
+\label{sec:orga1b63b0}
 \begin{itemize}
 \item declarative
 \begin{itemize}
@@ -111,5 +115,5 @@ So it is just a natural progression to use NNs for some of these components? Am 
 \end{quote}
 
 \subsection{}
-\label{sec:orgb98ec94}
+\label{sec:org9e614b8}
 \end{document}
