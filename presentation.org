@@ -59,6 +59,11 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 - completion, and
 - tokens
 
+*** Limitation
+Combined, the text prompt and generated
+completion must be below 2048 tokens (roughly
+~1500 words).
+
 *** Search engine vs Database
   - _Relational Databases_ use a _B-Tree index_.
   - *Search engines* mostly use *inverted index*.q
