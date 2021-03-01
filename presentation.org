@@ -66,12 +66,6 @@ Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 ~1500 words).
 
-*** Search engine vs Database
-  - _Relational Databases_ use a _B-Tree index_.
-  - *Search engines* mostly use *inverted index*.q
-  - _Relational Databases_ give you what you _asked for_.
-  - *Search engines* give you what you *wanted*.
-
 *** Terminology
 + _Indices_ :: = indexes. Indexes just sounds wrong to me.
 + _Model_ :: The *set of functions* that describe the relations between variables.

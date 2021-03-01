@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 11:11
+% Created 2021-03-02 Tue 11:16
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -14,7 +14,7 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\usetheme{default}
+\usetheme[height=20pt]{Rochester}
 \author{Shane Mulligan \\  }
 \date{\textit{<2021-03-01 Mon>}}
 \title{Presenting\ldots{} \\   \emph{\alert{Prompt Engineering in Emacs}} \\  }
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org2fbb3eb}
-\begin{frame}[label={sec:org595d427}]{Repositories for following along}
+\label{sec:orgf083607}
+\begin{frame}[label={sec:org2df968d}]{Repositories for following along}
 {\footnotesize
 \begin{center}
 \begin{tabular}{l}
@@ -46,9 +46,9 @@
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org912453e}
+\label{sec:org629ed9f}
 \subsection{Background Knowledge}
-\label{sec:org5574240}
+\label{sec:org1065c2b}
 \begin{itemize}
 \item \texttt{GPT-3} is a \texttt{seq2seq} model
 A text generator.
@@ -58,7 +58,7 @@ but configurable to be deterministic.
 \end{itemize}
 \end{itemize}
 
-\begin{frame}[label={sec:orgc441ae8}]{Key concepts}
+\begin{frame}[label={sec:org0169f84}]{Key concepts}
 \begin{itemize}
 \item prompt,
 \item completion, and
@@ -66,13 +66,13 @@ but configurable to be deterministic.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org369433e}]{Limitation}
+\begin{frame}[label={sec:org7448e54}]{Limitation}
 Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 \textasciitilde{}1500 words).
 \end{frame}
 
-\begin{frame}[label={sec:org0fbb45b}]{Search engine vs Database}
+\begin{frame}[label={sec:org36a9117}]{Search engine vs Database}
 \begin{itemize}
 \item \uline{Relational Databases} use a \uline{B-Tree index}.
 \item \alert{Search engines} mostly use \alert{inverted index}.q
@@ -81,7 +81,7 @@ completion must be below 2048 tokens (roughly
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgb1e2f73}]{Terminology}
+\begin{frame}[label={sec:org914b2c6}]{Terminology}
 \begin{description}
 \item[{\uline{Indices}}] = indexes. Indexes just sounds wrong to me.
 \item[{\uline{Model}}] The \alert{set of functions} that describe the relations between variables.
