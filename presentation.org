@@ -90,9 +90,7 @@ completion must be below 2048 tokens (roughly
 *** Prompt Engineering
 **** Characteristics
 #+latex: {\footnotesize
-- declarative
-  - Like html
-- stochastic
-  - Like problog
+- declarative, like =html=
+- stochastic, like =problog=
 - Unlocks new types of applications
 #+latex: }
