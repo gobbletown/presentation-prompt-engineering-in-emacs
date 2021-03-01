@@ -93,15 +93,9 @@ completion must be below 2048 tokens (roughly
 - stochastic
   - Like problog
 - Unlocks new types of applications
-
-#+BEGIN_QUOTE
-"Probabilistic and information theoretic methods are used to make results better anyway.
-Compromises are made anyway. Query reformulation, drift, etc.
-So it is just a natural progression to use NNs for some of these components? Am I right." -- A quote from myself.
-#+END_QUOTE
 #+latex: }
 
-** 
+** Emacs
 
 # ** More Background Knowledge
 # *** The research works under the premise that

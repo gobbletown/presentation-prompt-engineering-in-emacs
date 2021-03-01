@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 12:25
+% Created 2021-03-02 Tue 12:26
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org8425c15}
-\begin{frame}[label={sec:org543d1af},fragile]{Following along}
+\label{sec:orgf2378bb}
+\begin{frame}[label={sec:org52a84ab},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -54,10 +54,10 @@ github1s.com/semiosis/prompt-engineering-patterns\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org70f7b2c}
+\label{sec:orgdf7cc93}
 \subsection{GPT-3}
-\label{sec:org5e6fd55}
-\begin{frame}[label={sec:org0d4b19f},fragile]{Text Generator}
+\label{sec:org00d32b8}
+\begin{frame}[label={sec:org8cfd459},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -72,11 +72,13 @@ but configurable to be deterministic.
 \end{block}
 
 \begin{block}{Key concepts}
+{\footnotesize
 \begin{itemize}
 \item prompt,
 \item completion, and
 \item tokens
 \end{itemize}
+}
 \end{block}
 
 \begin{block}{Limitations}
@@ -96,7 +98,9 @@ information explicit.
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:orgcd17764}
+\label{sec:org2e3a492}
+\begin{frame}[label={sec:orgdecccfc}]{Prompt Engineering}
+{\footnotesize
 \begin{itemize}
 \item declarative
 \begin{itemize}
@@ -114,7 +118,9 @@ information explicit.
 Compromises are made anyway. Query reformulation, drift, etc.
 So it is just a natural progression to use NNs for some of these components? Am I right." -- A quote from myself.
 \end{quote}
+}
+\end{frame}
 
 \subsection{}
-\label{sec:org78c9613}
+\label{sec:org5d81d0c}
 \end{document}
