@@ -85,6 +85,7 @@ completion must be below 2048 tokens (roughly
       information explicit.
 #+latex: }
 
+* =pen.el=
 ** A new programming paradigm
 *** Prompt Engineering
 #+latex: {\footnotesize
