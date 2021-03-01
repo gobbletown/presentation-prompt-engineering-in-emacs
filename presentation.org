@@ -77,15 +77,10 @@ Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 ~1500 words).
 
-#+BEGIN_SRC text -n :async :results verbatim code
-  context-stuffing
-      [#prompt engineering]
-  
-      With only 2048 tokens, you need to make
++ context-stuffing :: With only 2048 tokens, you need to make
       use of your real estate by providing
       instructions and making implicit
       information explicit.
-#+END_SRC
 #+latex: }
 
 ** A new programming paradigm

@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:orga68f6c0}
-\begin{frame}[label={sec:org4c9d805},fragile]{Following along}
+\label{sec:orga10143b}
+\begin{frame}[label={sec:org464583b},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -54,10 +54,10 @@ github1s.com/semiosis/prompt-engineering-patterns\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org50658b9}
+\label{sec:org8ddfd6d}
 \subsection{GPT-3}
-\label{sec:orge757ef9}
-\begin{frame}[label={sec:org1b35454},fragile]{Text Generator}
+\label{sec:org0e6e0d3}
+\begin{frame}[label={sec:orgaa9fb15},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 \begin{itemize}
 \item \texttt{GPT-3} is a \texttt{seq2seq} model
@@ -82,6 +82,7 @@ Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 \textasciitilde{}1500 words).
 
+{\footnotesize
 \begin{verbatim}
 1  context-stuffing
 2      [#prompt engineering]
@@ -91,11 +92,12 @@ completion must be below 2048 tokens (roughly
 6      instructions and making implicit
 7      information explicit.
 \end{verbatim}
+}
 \end{block}
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:orga1b63b0}
+\label{sec:org55d631c}
 \begin{itemize}
 \item declarative
 \begin{itemize}
@@ -115,5 +117,5 @@ So it is just a natural progression to use NNs for some of these components? Am 
 \end{quote}
 
 \subsection{}
-\label{sec:org9e614b8}
+\label{sec:orgf1bb313}
 \end{document}
