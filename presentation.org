@@ -63,8 +63,7 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 **** Background knowledge
 #+latex: {\footnotesize
 - =GPT-3= is a =seq2seq= model (a text generator)
-  - It's stochastic
-    but configurable to be deterministic.
+  - It's stochastic but can be configured to be deterministic.
 #+latex: }
 
 **** Key concepts
