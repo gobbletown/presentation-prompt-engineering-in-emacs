@@ -1,4 +1,5 @@
 * Presentation: Prompt Engineering in emacs
 ** Slides
+[[./presentation.pdf]]
 
 ** Links
