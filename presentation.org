@@ -49,7 +49,8 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 
 * Preliminaries
 ** Background Knowledge
-- Deep learning models :: are function approximators.
+- =GPT-3= is a =seq2seq= model
+  A text generator.
 
 *** Search engine vs Database
   - _Relational Databases_ use a _B-Tree index_.
