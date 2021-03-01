@@ -39,8 +39,6 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 
 * Presentation
 ** "/Prompt Engineering in Emacs/"
-+ Date :: <2021-03-01 Mon>
-
 | Speaker | Shane Mulligan |
 
 *** Repositories to follow along
