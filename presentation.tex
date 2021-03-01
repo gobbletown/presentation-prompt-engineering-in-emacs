@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 12:24
+% Created 2021-03-02 Tue 12:25
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org4c5a79c}
-\begin{frame}[label={sec:org7fad35c},fragile]{Following along}
+\label{sec:org8425c15}
+\begin{frame}[label={sec:org543d1af},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -54,10 +54,10 @@ github1s.com/semiosis/prompt-engineering-patterns\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:orgdfded15}
+\label{sec:org70f7b2c}
 \subsection{GPT-3}
-\label{sec:orgace9e19}
-\begin{frame}[label={sec:org51a49fe},fragile]{Text Generator}
+\label{sec:org5e6fd55}
+\begin{frame}[label={sec:org0d4b19f},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -85,21 +85,18 @@ Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 \textasciitilde{}1500 words).
 
-\begin{verbatim}
-1  context-stuffing
-2      [#prompt engineering]
-3  
-4      With only 2048 tokens, you need to make
-5      use of your real estate by providing
-6      instructions and making implicit
-7      information explicit.
-\end{verbatim}
+\begin{description}
+\item[{context-stuffing}] With only 2048 tokens, you need to make
+use of your real estate by providing
+instructions and making implicit
+information explicit.
+\end{description}
 }
 \end{block}
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:org6968163}
+\label{sec:orgcd17764}
 \begin{itemize}
 \item declarative
 \begin{itemize}
@@ -119,5 +116,5 @@ So it is just a natural progression to use NNs for some of these components? Am 
 \end{quote}
 
 \subsection{}
-\label{sec:org4f4aab6}
+\label{sec:org78c9613}
 \end{document}

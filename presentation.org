@@ -67,9 +67,11 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 #+latex: }
 
 **** Key concepts
+#+latex: {\footnotesize
 - prompt,
 - completion, and
 - tokens
+#+latex: }
 
 **** Limitations
 #+latex: {\footnotesize
