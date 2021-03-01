@@ -1,4 +1,4 @@
-% Created 2021-03-01 Mon 21:57
+% Created 2021-03-01 Mon 21:58
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8x]{inputenc}
@@ -17,10 +17,10 @@
 \usetheme{default}
 \author{Shane Mulligan \\  }
 \date{\textit{<2021-03-01 Mon>}}
-\title{presenting\ldots{} \\   \emph{\alert{Prompt Engineering in Emacs}} \\  }
+\title{Presenting\ldots{} \\   \emph{\alert{Prompt Engineering in Emacs}} \\  }
 \hypersetup{
  pdfauthor={Shane Mulligan \\  },
- pdftitle={presenting\ldots{} \\   \emph{\alert{Prompt Engineering in Emacs}} \\  },
+ pdftitle={Presenting\ldots{} \\   \emph{\alert{Prompt Engineering in Emacs}} \\  },
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.0.91 (Org mode 9.3.6)}, 
@@ -30,36 +30,28 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org67790be}
-\subsection{"\emph{Prompt Engineering in Emacs}"}
-\label{sec:org0ccc55f}
+\label{sec:orgf43bf36}
+\begin{frame}[label={sec:orgc5f8958}]{Repositories to follow along}
 \begin{center}
-\begin{tabular}{ll}
-Speaker & Shane Mulligan\\
-\end{tabular}
-\end{center}
-
-\begin{frame}[label={sec:org299757d}]{Repositories to follow along}
-\begin{center}
-\begin{tabular}{ll}
-Slides & \url{http://github.com/mullikine/presentation-prompt-engineering-in-emacs}\\
-DSL & \url{http://github.com/semiosis/examplary}\\
-emacs & \url{http://github.com/semiosis/pen.el}\\
-prompts & \url{http://github.com/semiosis/prompts}\\
- & \url{http://github.com/mullikine/prompt-engineering-patterns}\\
+\begin{tabular}{l}
+\url{http://github.com/mullikine/presentation-prompt-engineering-in-emacs}\\
+\url{http://github.com/semiosis/examplary}\\
+\url{http://github.com/semiosis/pen.el}\\
+\url{http://github.com/semiosis/prompts}\\
+\url{http://github.com/mullikine/prompt-engineering-patterns}\\
 \end{tabular}
 \end{center}
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org44d37b2}
+\label{sec:org136e6df}
 \subsection{Background Knowledge}
-\label{sec:org04355f3}
+\label{sec:org39990da}
 \begin{description}
 \item[{Deep learning models}] are function approximators.
 \end{description}
 
-\begin{frame}[label={sec:org3efe7c5}]{Search engine vs Database}
+\begin{frame}[label={sec:org1eda66b}]{Search engine vs Database}
 \begin{itemize}
 \item \uline{Relational Databases} use a \uline{B-Tree index}.
 \item \alert{Search engines} mostly use \alert{inverted index}.q
@@ -68,7 +60,7 @@ prompts & \url{http://github.com/semiosis/prompts}\\
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org3037c1c}]{Terminology}
+\begin{frame}[label={sec:orgfb72642}]{Terminology}
 \begin{description}
 \item[{\uline{Indices}}] = indexes. Indexes just sounds wrong to me.
 \item[{\uline{Model}}] The \alert{set of functions} that describe the relations between variables.

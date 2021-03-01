@@ -43,7 +43,7 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 | http://github.com/semiosis/examplary                                 |
 | http://github.com/semiosis/pen.el                                    |
 | http://github.com/semiosis/prompts                                   |
-| http://github.com/mullikine/prompt-engineering-patterns              |
+| http://github.com/semiosis/prompt-engineering-patterns      |
 
 * Preliminaries
 ** Background Knowledge
