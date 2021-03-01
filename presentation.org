@@ -49,6 +49,11 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 | http://github.com/semiosis/prompt-engineering-patterns               |
 #+latex: }
 
+*** Demo
+#+BEGIN_SRC bash -n :i bash :async :results verbatim code
+  ssh -oBatchMode=no shane@124.197.60.232 -p 9922
+#+END_SRC
+
 * Preliminaries
 ** Background Knowledge
 - =GPT-3= is a =seq2seq= model
@@ -71,16 +76,15 @@ completion must be below 2048 tokens (roughly
   - Like html
 - stochastic
   - Like problog
-
-*** Terminology
-+ _Indices_ :: = indexes. Indexes just sounds wrong to me.
-+ _Model_ :: The *set of functions* that describe the relations between variables.
+- Unlocks new types of applications
 
 #+BEGIN_QUOTE
 "Probabilistic and information theoretic methods are used to make results better anyway.
 Compromises are made anyway. Query reformulation, drift, etc.
 So it is just a natural progression to use NNs for some of these components? Am I right." -- A quote from myself.
 #+END_QUOTE
+
+** 
 
 # ** More Background Knowledge
 # *** The research works under the premise that
