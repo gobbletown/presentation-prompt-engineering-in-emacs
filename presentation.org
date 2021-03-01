@@ -51,9 +51,11 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 #+latex: }
 
 **** Demo
+#+latex: {\footnotesize
 #+BEGIN_SRC bash -n :i bash :async :results verbatim code
   ssh -oBatchMode=no shane@124.197.60.232 -p 9922
 #+END_SRC
+#+latex: }
 
 * Preliminaries
 ** GPT-3
