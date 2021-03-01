@@ -59,10 +59,12 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 ** GPT-3
 *** Text Generator
 **** Background knowledge
+#+latex: {\footnotesize
 - =GPT-3= is a =seq2seq= model
   A text generator.
   - It's stochastic
     but configurable to be deterministic.
+#+latex: }
 
 **** Key concepts
 - prompt,
@@ -70,11 +72,11 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 - tokens
 
 **** Limitations
+#+latex: {\footnotesize
 Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 ~1500 words).
 
-#+latex: {\footnotesize
 #+BEGIN_SRC text -n :async :results verbatim code
   context-stuffing
       [#prompt engineering]
