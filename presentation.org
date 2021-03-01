@@ -45,6 +45,7 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 
 *** Repositories to follow along
 | Slides | http://github.com/mullikine/presentation-prompt-engineering-in-emacs |
+| DSL    | http://github.com/semiosis/examplary                                 |
 
 * Preliminaries
 ** Background Knowledge
