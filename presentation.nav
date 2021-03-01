@@ -1,0 +1,23 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\sectionentry {1}{Presentation}{2}{Presentation}{0}}
+\headcommand {\beamer@subsectionpages {2}{1}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{2}{"\emph {Prompt Engineering in Emacs}"}}
+\headcommand {\slideentry {1}{1}{1}{2/2}{"\emph {Prompt Engineering in Emacs}"}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@sectionpages {2}{3}}
+\headcommand {\beamer@subsectionpages {2}{3}}
+\headcommand {\sectionentry {2}{Preliminaries}{4}{Preliminaries}{0}}
+\headcommand {\beamer@subsectionpages {4}{3}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{4}{Background Knowledge}}
+\headcommand {\slideentry {2}{1}{1}{4/4}{Background Knowledge}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\slideentry {2}{1}{2}{6/6}{Background Knowledge}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@partpages {1}{6}}
+\headcommand {\beamer@subsectionpages {4}{6}}
+\headcommand {\beamer@sectionpages {4}{6}}
+\headcommand {\beamer@documentpages {6}}
+\headcommand {\gdef \inserttotalframenumber {4}}

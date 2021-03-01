@@ -40,15 +40,15 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 * Presentation
 ** "/Prompt Engineering in Emacs/"
 + Date :: <2021-03-01 Mon>
-+ Speaker :: Shane Mulligan
-+ URL :: https://www.arxiv-vanity.com/papers/1712.01208/
+
+| Speaker | Shane Mulligan |
 
 *** Repositories to follow along
-| Slides             | http://github.com/mullikine/presentation-prompt-engineering-in-emacs |
-| DSL                | http://github.com/semiosis/examplary                                 |
-| emacs package      | http://github.com/semiosis/pen.el                                    |
-| prompts            | http://github.com/semiosis/prompts                                   |
-| prompt engineering | http://github.com/mullikine/prompt-engineering-patterns              |
+| Slides  | http://github.com/mullikine/presentation-prompt-engineering-in-emacs |
+| DSL     | http://github.com/semiosis/examplary                                 |
+| emacs   | http://github.com/semiosis/pen.el                                    |
+| prompts | http://github.com/semiosis/prompts                                   |
+|         | http://github.com/mullikine/prompt-engineering-patterns              |
 
 * Preliminaries
 ** Background Knowledge
@@ -70,513 +70,513 @@ Compromises are made anyway. Query reformulation, drift, etc.
 So it is just a natural progression to use NNs for some of these components? Am I right." -- A quote from myself.
 #+END_QUOTE
 
-** More Background Knowledge
-*** The research works under the premise that
-+ *Indices are models* (set of functions). For example,
-  + B-Tree-Index :: $f: key \mapsto pos$
-    - $pos$ is the position of a record, within a *sorted* array
-  + Hash-Index :: $f: key \mapsto pos$
-    - $pos$ is the position of a record, within an *unsorted* array
-  + BitMap-Index :: indicates if a data record exists or not
-
-*** A new term is introduced!
-+ _*Learned Index*_ :: A deep-learning model with the function of an index structure.
-                   Auto-/magestically/ synthesised.
-
-* Overview
-** The Argument of the Paper
-*** The researchers _/hypothesise/_...
-that *All* existing index structures *can* be replaced with learned indices.
-+ Paper does not argue that you *should* necessarily.
-
-  It's a novel approach to build indexes, complimenting existing work.
-
-+  Specifically, a model can
-   1. *Learn* the _sort order/structure_ of *keys*,
-   2. and use this to *predict* the _position/existence_ of *records*.
-
-*** They _/explore/_...
-+ The *extent* to which learned models (including NNs) can replace traditional index for *efficient data access*.
-*** They _/speculate/_...
-- This could fundamentally change the way database systems are developed in the future.
-
-** Investigations / Case studies
-The studies performed in the paper are:
-+ About evaluating learned models on *efficient data access*, the role of traditional indices.
-+ Done on CPUs rather than G/TPUs for a fairer comparison with existing methods, despite new hardware being the biggest reason to use learned indices.
-
-*** Theme 1: Can learned models speed up indices?
-| tested for read-only analytical workloads | (The majority of this paper) |
-| tested for write-heavy workloads          | (Briefly covered)            |
-
-*** Theme 2: Can replacing individual components speed up indices?
-| Study 1 / 3 | B-Tree                            | (Evaluated)       |
-| Study 2 / 3 | Hash-index                        | (Evaluated)       |
-| Study 3 / 3 | Bloom-filter                      | (Evaluated)       |
-|             | other components (sorting, joins) | (Briefly covered) |
-
-** Debunking the Myths
-*** _Myths_ or soon to become myths
-1. +Machine learning cannot provide the same semantic guarantees+.
-
-   /Traditional/ indices largely *are already* /learned/ indices.
-   - B-Trees _*predict*_ record position.
-   - Bloom filter is a binary _*classifier*_ (like our Delta Rule network).
-     It's a space-efficient probabilistic data structure. See: BitFunnel.
-#+BEGIN_COMMENT
-In BitFunnel: Revisiting Signatures for Search, a research paper from
-Microsoft that came out in Aug, 2017, they use
-a Bloom filter to replace bit-signatures.
-
-Bit-signatures represent the set of terms in each document as a fixed sequence of bits.
-
-Bloom filters are reasonably space efficient and allow for fast set
-membership, forming the basis for query processing.
-#+END_COMMENT
-
-2. +NNs thought of as being very expensive to evaluate+.
-   - Huge _*benefits*_, especially on the next generation of hardware.
-
-*** _Trends_ :BMCOL:B_block:
-:PROPERTIES:
-:BEAMER_col: 0.45
-:BEAMER_env: block
-:END:
-+ GPUs and TPUs in phones
-
-  The main reason to adopt learned indices (page 4).
-+ Scaling NN trivial. Cost = 0.
-
-*** _Benefits_ for databases :BMCOL:B_block:
-:PROPERTIES:
-:BEAMER_col: 0.45
-:BEAMER_env: block
-:END:
-+ Remove the +branch-heavy index structures+ and add *Neural Networks*
-
-#+BEGIN_COMMENT
-Every CPU has powerful SIMD capabilities
-
-Many laptops and mobile phones will soon have a Graphics Processing Unit
-(GPU) or Tensor Processing Unit (TPU).
-
-It is also reasonable to speculate that CPU-SIMD/GPU/TPUs will be
-increasingly powerful as it is much easier to scale the restricted set
-of (parallel) math operations used by neural-nets than a general purpose
-instruction set.
-
-High cost to execute a neural net might actually be negligible in the
-future.
-
-Nvidia and Google’s TPUs are already able to perform thousands if not
-tens of thousands of neural net operations in a single cycle.
-
-GPUs will improve 1000× in performance by 2025, whereas Moore’s law for
-CPU essentially is dead.
-
-By replacing branch-heavy index structures with neural networks,
-databases can benefit from these hardware trends.
-#+END_COMMENT
-
-** Results and Conclusions sneak peak
-*** Results
-1. *Learned* indices /can/ be 70% *faster* than cache-optimized B-Trees while *saving* an order-of-magnitude in *memory*.
-
-   - Tested over several real-world datasets.
-
-*** Conclusions
-1. *Replacing components* of a data management system with /*learned*/ models has *far-reaching* implications.
-
-   - This work only provides a *glimpse* of what might be possible...
-
-* Introduction
-** "Traditional" Index Structures
-*** Some examples :BMCOL:B_block:
-:PROPERTIES:
-:BEAMER_col: 0.70
-:BEAMER_env: block
-:END:
-/Covered in this paper by 3 separate studies:/
-1. B-Trees
-   + Great for *range* requests (retrieve all in a..b)
-2. Hash-Maps
-   + *key*-based lookups
-3. Bloom-filters
-   + Set membership
-   + May give false positives, but no false negatives
-
-*** Solidly built :BMCOL:B_block:
-:PROPERTIES:
-:BEAMER_col: 0.30
-:BEAMER_env: block
-:END:
-+ Highly Optimised
-  - Memory
-  - Cache
-  - CPU
-+ Assume worst case
-#+BEGIN_COMMENT
-Because of the importance of indexes for database systems and many other applications, they have been extensively tuned over the past decades to be more memory, cache and/or CPU efficient
-
-
-#+END_COMMENT
-
-*** It works because...
-+ *Knowing* the exact data distribution *enables optimisation* of the index.
-
-  ...But then we... /must/ know. But we don't always.
-
-#+BEGIN_COMMENT
-:PROPERTIES:
-:BEAMER_col: 0.45
-:END:
-#+END_COMMENT
-
-** Benefits of replacing B-Trees with Learned Indices
-*** Benefits of replacing B-Trees with Learned Indices
-1. B-Tree lookup $O(\log_n) \Longrightarrow O(n)$ (if SLM)
-   + Simple Linear [Regression] Model :: predictor,  1 mul, 1 add...
-#+BEGIN_COMMENT
-Key itself can be used as an offset, sometimes.
-If the goal would be to build a highly tuned system to store and query fixed-length records with continuous integer keys (e.g., the keys 1 to 100M), one would not use a conventional B-Tree index over the keys since the key itself can be used as an offset, making it an
-O(1) rather than O(log n) operation to look-up any key or the beginning
-of a range of keys. Similarly, the index memory size would be reduced
-from O(n) to O(1).
-#+END_COMMENT
-1. ML accelerators (GPU/TPU)
-   If the entire learned index can fit into GPU's memory, that's 1M NN ops every 30 cycles with current technology.
-2. Mixture of Models (builds upon Jeff's paper from last year)
-   ReLU at top, learning a wide range of complex data distributions.
-   SLRM at the bottom because they are inexpensive.
-   Or use B-Trees at the bottom stage if the data is hard to learn.
-
-#+BEGIN_COMMENT
-Non-monotonically increasing models.
-#+END_COMMENT
-
-* Case Studies
-** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
-Replacing a B-tree with a *Learned* _[Range] *Index*_ [Model].
-*** Theory
-+ $\therefore$ *B-Tree* $\approx$ Regression Tree $\approx$ CDF $\equiv$ *Learned Range Index*.
-*** Plan
-+ Experiment with a Naïve Learned Index
-  ... to see how bad it is.
-+ Experiment with a much better Learned Index, the _RM-Index_.
-
-** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
-#+BEGIN_COMMENT
-$\equiv$
-#+END_COMMENT
-Why can we replace B-Trees with DL again?
-#+BEGIN_COMMENT
-An index ~is-a~ model. B-Tree ~is-a~ model. Range Index Model ~is-a~ CDF Model $F_X(x) = P(X \leq x)$.
-Cumulative density function, of X (a variable)
-Distribution function, of X
-    $F_X(x) = P(X \leq x)$
-	Evaluated at x (specific value), it is the probability that X will take a value less than or equal to x.
-#+END_COMMENT
-*** B-Tree ~is-a~ model
- + B-Tree-Index :: $f: key \mapsto pos$
-   - $pos$ is the position of a record, within a *sorted* array
-*** B-Tree $\approx$ /Regression Tree/
- + _Regression Tree_ :: A decision tree with $\mathbb{R}$ targets.
-   - Maps a key to a position with a min and max error.
-#+BEGIN_COMMENT
-+ max/ min error :: before re-training or re-balancing for new data
-#+END_COMMENT
-*** Range Index Model ~is-a~ Cumulative Density Function (CDF)
-#+BEGIN_QUOTE
-A model which predicts the position given a key inside a sorted array effectively approximates a CDF (page 5).
-#+END_QUOTE
-
-+ $\therefore$ *B-Tree* $\approx$ Regression Tree $\approx$ CDF $\equiv$ *Learned Range Index*.
-
-** Study 1 of 3: +B-Tree+ $\Rightarrow$ RT/RIM $\Rightarrow$ CDF $\Rightarrow$ Learned R.I.
-#+BEGIN_COMMENT
-+ Implications
-  1. Indexing literally requires learning a data distribution.
-     A B-Tree learns the data distribution by building a regression tree.
-     A linear regression model would learn the data distribution by minimising the squared error of a linear function.
-  2. Estimating the distribution for a data set is a well known problem and learned indexes can benefit from decades of research.
-  3. Learning the CDF plays a key role in optimising other types of index structures and potential algorithms.
-#+END_COMMENT
-*** Analogs
-+ Rebalanced vs Retrained
-#+BEGIN_COMMENT
-B-Tree only provides error guarantee over stored data, not new data.
-#+END_COMMENT
-
-  $\therefore$ min/max error guarantee only needed for training.
-
-*** Cumulative Density Function (CDF)
-$F_X(x) = P(X \leq x)$
-
-A range index needs to be able to provide:
-+ point queries $\checkmark$
-+ range queries, sort order(records) $\equiv$ sort order(sorted look-up keys)) $\checkmark$
-+ guarantees on min-/max error.
-
-CDF is good to go. It can be used as our Learned Range Index.
-*** $\therefore$
-Can replace index with other models including DL, so long as min and max error are similar to b-tree.
-
-
-** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
-*** Experiment 1.1 - Naïve Learned Index with TensorFlow
-+ Objective :: Evaluate to study the technical requirements to replace B-Trees.
-+ Architecture ::
-  + Two-layer fully conneted neural network (32:32).
-  + 32 neurons/units per layer.
-  + ReLU activation function.
-  + Input features :: The timestamps of messages from web server logs
-  + Labels :: The positions of the messages (actual line number?)
-  + Optimisation goal :: Is not /simply/ error minimisation. Min-/max error
-  #+BEGIN_COMMENT
-  Indexing only needs a best guess of position.
-  More important are guarantees of min and max error.
-#+END_COMMENT
-+ Purpose :: Build secondary index over timestamps. Test performance.
-
-
-** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
-*** Critique
-This is a very naïve learned index, and that's how we want it. The researchers want to see how much faster a B-Tree is than a *naïve* neural network substitution. The answer is 300x faster.
-
-+ ReLU activation function :: $f(x) = max(0, x)$
-
-The ReLU activation function is _the new sigmoid_ in that it's now the go-to activation function for deep learning.
-
-It's typically used for hidden layers as it avoids vanishing gradient problem, yet we don't have a hidden layer. It's just a line. It's so basic, it's perfect.
-
-Also, the researchers are after a sparse representation, matching one key to one position, so this property of the ReLU makes it an even better candidate.
-
-I assume that 32 neurons are used because that is the max string length of the timestamp / record position.
-
-#+BEGIN_COMMENT
-sigmoid:
-product of many smaller than 1 values goes to zero very quickly.
-Since the state of the art of for Deep Learning has shown that more layers helps a lot, then this disadvantage of the Sigmoid function is a game killer. You just can't do Deep Learning with Sigmoid.
-#+END_COMMENT
-
-#+BEGIN_COMMENT
-Input neurons are just inputs. They do not have a bias or an activation function. I don't think Relu is being used on the input layer.
-
-The problem with ReLU is that some gradients can be fragile during training and can die.
-It can cause a weight update which will make it never activate on any data point again.
-Simply saying that ReLU could result in Dead Neurons.
-#+END_COMMENT
-
-#+BEGIN_COMMENT
-Leaky ReLU
-This is a step away from what we want. It's less naïve and we want naïveness.
-
-Leaky ReLu could be used to fix the problem of dying neurons. It introduces a small slope to keep the updates alive.
-#+END_COMMENT
-** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
-*** Experiment 1.1 - Results
-The researchers came to these findings:
-+ B-Trees are 2 orders of magnitude faster. Tensorflow is designed for larger models. Lots of overhead with Python.
-+ _A *single* neural network requires significantly more space and CPU time for the *last mile* of error minimisation_.
-+ B-Trees, or decision trees in general, are really good in overfitting the data (adding new data after balancing) with a *few* operations. They just divide up the space cheaply, using an if-statement.
-+ Other models can be significantly more efficient to approximate the general shape of a CDF.
-  + So models like NNs might be more CPU and space efficient to narrow down the position for an item from the entire data set to a region of thousands.
-  + But usually requires significantly more space and CPU time for the last mile.
-
-These ideas are taken into account when designing the next model, the *RM-Index*.
-
-#+BEGIN_COMMENT
-From a top-level view, the CDF function appears very smooth and regular.
-However, if one zooms in to the individual records, more and more
-irregularities show; a well known statistical effect. Many data sets
-have exactly this behavior: from the top the data distribution appears
-very smooth, whereas as more is zoomed in the harder it is to
-approximate the CDF because of the “randomness” on the individual level.
-#+END_COMMENT
-
-#+BEGIN_COMMENT
-Polynomial regression can be solved in a 'least squares' sense.
-#+END_COMMENT
-
-#+BEGIN_COMMENT
-Maybe keep this for 420.
-
-3. The typical ML optimization goal is to minimize the average error.
-
-   However, for indexing, where we not only need the best guess where the item might be but also to actually find it, the min- and max-error as discussed earlier are more important.
-
-   The min-error for a b-tree is 0 and the max-error is the page size.
-   We only need strong guarantees for these values with learned indices.
-
-4. B-Trees are extremely cache-efficient as they keep the top nodes always in cache and access other pages
-if needed. However, other models are not as cache and operation efficient. For example, standard neural
-nets require all weights to compute a prediction, which has a high cost in the number of multiplications
-and weights, which have to brought in from memory.
-#+END_COMMENT
-
-** Study 1 of 3: Learned Range Index [Model] $\approx$ B-Tree
-
-*** Challenges to replacing B-Trees
-1. Main challenge: balance model *complexity* with *accuracy*.
-#+BEGIN_COMMENT
-Remember SLM below.
-#+END_COMMENT
-2. *Bounded cost* for inserts and lookups, taking advantage of the *cache*.
-3. Map keys to pages (*memory or disk?*)
-4. Last mile accuracy.
-   This is the main reason why the Naïve Learned Model was so slow.
-   Overcome by using the Recursive Model (RM) Index.
-
-**** New terms
-+ Last mile accuracy
-#+BEGIN_COMMENT
-Reducing the min-/max-error in the order of hundreds from 100M records using a single model is very hard.
-
-At the same time, reducing the error to 10k from 100M (a precision gain of 100*100 = 10,000) to replace the first 2 layers of a B-Tree through a model is much easier to achieve even with simple models.
-
-Reducing the error from 10k to 100 is a simpler problem as the model can focus only on a subset of the data.
-#+END_COMMENT
-** Study 1 of 3: Learned Range Index [Model] $\approx$ B-Tree
-*** Recursive Model (RM) Index
-Also known as the Recursive Regression Model.
-
-One of the key contributions of this research paper.
-
-A hierarchy of models.
-
-At each stage the model takes the key as an input and based on it picks another model, until the final stage predicts the position.
-
-Each prediction as you go down the hierarchy is picking an expert that has better knowledge about certain keys.
-
-Solves the 'Last mile accuracy' problem.
-#+BEGIN_COMMENT
-Because it divides the space into smaller sub-ranges like a B-Tree/decision tree. Fewer number of operations towards the end.
-#+END_COMMENT
-
-#+BEGIN_COMMENT
-Inspired by the mixture of experts work.
-
-One way to think about the different models is that each model makes a prediction with a certain error about the position for the key and that the prediction is used to select the next model.
-#+END_COMMENT
-
-#+BEGIN_COMMENT
-Because there is no search process between stages.
-
-5. Some may return positions outside of min-max error range, if lookup key doesnt exist in the set.
-#+END_COMMENT
-
-** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
-*** Experiment 1.2 - Hybrid Recursive Model Index
-+ Method ::
-  + n stages, n models per stage = hyperparameters
-  + Each net
-    + 0 to 2 fully conneted hidden-layers
-    + Up to 32 neurons/units per layer
-  + ReLU activation functions
-  + B-Trees.
-  + Input features :: The timestamps of messages from web server logs
-  + Labels :: The positions of the messages (actual line number?)
-  + Datasets :: Blogs, Maps, web documents, lognormal (synthetic)
-  + Optimisation goal :: Is not /simply/ error minimisation.
-  + After training, the index is optimised by replacing NN models with B-Trees if absolute min-/max- error is above a predefined threshold value.
-+ Conclusions ::
-  + Allow use to bound the worst case performance of learned indexes to the performance of B-Trees.
-
-  #+BEGIN_COMMENT
-  Indexing only needs a best guess of position.
-  More important are guarantees of min and max error.
-#+END_COMMENT
-
-** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
-*** Results of Experiment 1.2
-
-Was the data used obtained ethically? Who knows.
-
-* Testing
-+ They developed what they call the 'Leaning Index Framework', an index synthesis system.
-  It accelerates the process of index synthesis and testing.
-
-* Aim of review
-** Questions
-1. What is the specific problem or topic that this research addresses?
-   1. Optimisation of an index requires *knowledge* of the data distribution. There is no guarantee of this. But it can be learned.
-   2. Learned indices provide new ways to further optimise search engines.
-
-2. If the paper presents a new network, algorithm, or technique, how does it work?
-   Is it suited to the task?
-
-   + A new model architecture, the Recursive Regression Model
-
-     Task: A substitute for a B-Tree.
-
-     Inspired by work done in the paper "Outrageously Large Neural Networks".
-
-     Constitution:
-     Build a hierarchy of models.
-     At each stage the model takes the key as an input and based on it picks another model, until the final stage predicts the position.
-
-     Each model makes a prediction with a certain error about the position for the key and that the prediction is used to select the next model.
-
-     Recursive Model Indices are *not trees*.
-
-     The architecture divides the space into smaller sub-ranges like a B-tree/decision tree to make it easier to achieve to required last-mile accuracy with a fewer number of operations.
-
-   + Is it suited to the task?
-     The model divides the space into smaller sub-ranges like a B-Tree to make it easier to achieve the required "last mile" accuracy with fewer operations.
-     This solves one of the aformentioned complications of replacing a B-Tree.
-
-     The entire index can be represented as a sparse matrix-multiplication for a TPU/GPU.
-
-
-   Has it been well tested, and does it really work as claimed? What are the limitations?
-   1. This could change the way database systems are developed.
-
-3. What are Innovations
-
-4. *Learned* indices /can/ be 70% *faster* than cache-optimized B-Trees while *saving* an order-of-magnitude in *memory*.
-
-   - Tested over several real-world datasets.
-
-5. Did they choose the architecture - why or why not?
-Is it clearly described (all parameters, settings etc.)?
-What strengths and/or weaknesses of the NN approach does it illustrate?
-
-
-• Is the paper well structured and well written?
-
-* Q&A
-** Evaluation
-*** Was the paper well organised?
-It is well structured and well written.
-*** Problem and solution :BMCOL:B_block:
-:PROPERTIES:
-:BEAMER_env: block
-:END:
-+ problem :: Real world data does not perfectly follow known patterns. Specialised solutions expensive.
-+ solution :: ML. Learn the model -> Synthesise specialised index. Low cost.
-*** Strengths and/or weaknesses of the NN approach
-The paper illustrated that...
-*** Did they choose the right architectures? Why or why not?
-Is it clearly described (all parameters, settings etc.)?
-** Own Questions
-*** Paper
-
-*** Research question defined?
-What is the research question?
-
-*** Generalization
-Does the study allow generalization?
-*** Limitations
-
-
-
-*** Consistency
-The discussion and conclusions should be consistent with the study’s results.
-
-Results
-in accordance with the researcher’s expectations
-not in accordance.
-
-Do the authors of the article you hold in hand do the same?
-
-*** Ethics
+# ** More Background Knowledge
+# *** The research works under the premise that
+# + *Indices are models* (set of functions). For example,
+#   + B-Tree-Index :: $f: key \mapsto pos$
+#     - $pos$ is the position of a record, within a *sorted* array
+#   + Hash-Index :: $f: key \mapsto pos$
+#     - $pos$ is the position of a record, within an *unsorted* array
+#   + BitMap-Index :: indicates if a data record exists or not
+
+# *** A new term is introduced!
+# + _*Learned Index*_ :: A deep-learning model with the function of an index structure.
+#                    Auto-/magestically/ synthesised.
+
+# * Overview
+# ** The Argument of the Paper
+# *** The researchers _/hypothesise/_...
+# that *All* existing index structures *can* be replaced with learned indices.
+# + Paper does not argue that you *should* necessarily.
+
+#   It's a novel approach to build indexes, complimenting existing work.
+
+# +  Specifically, a model can
+#    1. *Learn* the _sort order/structure_ of *keys*,
+#    2. and use this to *predict* the _position/existence_ of *records*.
+
+# *** They _/explore/_...
+# + The *extent* to which learned models (including NNs) can replace traditional index for *efficient data access*.
+# *** They _/speculate/_...
+# - This could fundamentally change the way database systems are developed in the future.
+
+# ** Investigations / Case studies
+# The studies performed in the paper are:
+# + About evaluating learned models on *efficient data access*, the role of traditional indices.
+# + Done on CPUs rather than G/TPUs for a fairer comparison with existing methods, despite new hardware being the biggest reason to use learned indices.
+
+# *** Theme 1: Can learned models speed up indices?
+# | tested for read-only analytical workloads | (The majority of this paper) |
+# | tested for write-heavy workloads          | (Briefly covered)            |
+
+# *** Theme 2: Can replacing individual components speed up indices?
+# | Study 1 / 3 | B-Tree                            | (Evaluated)       |
+# | Study 2 / 3 | Hash-index                        | (Evaluated)       |
+# | Study 3 / 3 | Bloom-filter                      | (Evaluated)       |
+# |             | other components (sorting, joins) | (Briefly covered) |
+
+# ** Debunking the Myths
+# *** _Myths_ or soon to become myths
+# 1. +Machine learning cannot provide the same semantic guarantees+.
+
+#    /Traditional/ indices largely *are already* /learned/ indices.
+#    - B-Trees _*predict*_ record position.
+#    - Bloom filter is a binary _*classifier*_ (like our Delta Rule network).
+#      It's a space-efficient probabilistic data structure. See: BitFunnel.
+# #+BEGIN_COMMENT
+# In BitFunnel: Revisiting Signatures for Search, a research paper from
+# Microsoft that came out in Aug, 2017, they use
+# a Bloom filter to replace bit-signatures.
+
+# Bit-signatures represent the set of terms in each document as a fixed sequence of bits.
+
+# Bloom filters are reasonably space efficient and allow for fast set
+# membership, forming the basis for query processing.
+# #+END_COMMENT
+
+# 2. +NNs thought of as being very expensive to evaluate+.
+#    - Huge _*benefits*_, especially on the next generation of hardware.
+
+# *** _Trends_ :BMCOL:B_block:
+# :PROPERTIES:
+# :BEAMER_col: 0.45
+# :BEAMER_env: block
+# :END:
+# + GPUs and TPUs in phones
+
+#   The main reason to adopt learned indices (page 4).
+# + Scaling NN trivial. Cost = 0.
+
+# *** _Benefits_ for databases :BMCOL:B_block:
+# :PROPERTIES:
+# :BEAMER_col: 0.45
+# :BEAMER_env: block
+# :END:
+# + Remove the +branch-heavy index structures+ and add *Neural Networks*
+
+# #+BEGIN_COMMENT
+# Every CPU has powerful SIMD capabilities
+
+# Many laptops and mobile phones will soon have a Graphics Processing Unit
+# (GPU) or Tensor Processing Unit (TPU).
+
+# It is also reasonable to speculate that CPU-SIMD/GPU/TPUs will be
+# increasingly powerful as it is much easier to scale the restricted set
+# of (parallel) math operations used by neural-nets than a general purpose
+# instruction set.
+
+# High cost to execute a neural net might actually be negligible in the
+# future.
+
+# Nvidia and Google’s TPUs are already able to perform thousands if not
+# tens of thousands of neural net operations in a single cycle.
+
+# GPUs will improve 1000× in performance by 2025, whereas Moore’s law for
+# CPU essentially is dead.
+
+# By replacing branch-heavy index structures with neural networks,
+# databases can benefit from these hardware trends.
+# #+END_COMMENT
+
+# ** Results and Conclusions sneak peak
+# *** Results
+# 1. *Learned* indices /can/ be 70% *faster* than cache-optimized B-Trees while *saving* an order-of-magnitude in *memory*.
+
+#    - Tested over several real-world datasets.
+
+# *** Conclusions
+# 1. *Replacing components* of a data management system with /*learned*/ models has *far-reaching* implications.
+
+#    - This work only provides a *glimpse* of what might be possible...
+
+# * Introduction
+# ** "Traditional" Index Structures
+# *** Some examples :BMCOL:B_block:
+# :PROPERTIES:
+# :BEAMER_col: 0.70
+# :BEAMER_env: block
+# :END:
+# /Covered in this paper by 3 separate studies:/
+# 1. B-Trees
+#    + Great for *range* requests (retrieve all in a..b)
+# 2. Hash-Maps
+#    + *key*-based lookups
+# 3. Bloom-filters
+#    + Set membership
+#    + May give false positives, but no false negatives
+
+# *** Solidly built :BMCOL:B_block:
+# :PROPERTIES:
+# :BEAMER_col: 0.30
+# :BEAMER_env: block
+# :END:
+# + Highly Optimised
+#   - Memory
+#   - Cache
+#   - CPU
+# + Assume worst case
+# #+BEGIN_COMMENT
+# Because of the importance of indexes for database systems and many other applications, they have been extensively tuned over the past decades to be more memory, cache and/or CPU efficient
+
+
+# #+END_COMMENT
+
+# *** It works because...
+# + *Knowing* the exact data distribution *enables optimisation* of the index.
+
+#   ...But then we... /must/ know. But we don't always.
+
+# #+BEGIN_COMMENT
+# :PROPERTIES:
+# :BEAMER_col: 0.45
+# :END:
+# #+END_COMMENT
+
+# ** Benefits of replacing B-Trees with Learned Indices
+# *** Benefits of replacing B-Trees with Learned Indices
+# 1. B-Tree lookup $O(\log_n) \Longrightarrow O(n)$ (if SLM)
+#    + Simple Linear [Regression] Model :: predictor,  1 mul, 1 add...
+# #+BEGIN_COMMENT
+# Key itself can be used as an offset, sometimes.
+# If the goal would be to build a highly tuned system to store and query fixed-length records with continuous integer keys (e.g., the keys 1 to 100M), one would not use a conventional B-Tree index over the keys since the key itself can be used as an offset, making it an
+# O(1) rather than O(log n) operation to look-up any key or the beginning
+# of a range of keys. Similarly, the index memory size would be reduced
+# from O(n) to O(1).
+# #+END_COMMENT
+# 1. ML accelerators (GPU/TPU)
+#    If the entire learned index can fit into GPU's memory, that's 1M NN ops every 30 cycles with current technology.
+# 2. Mixture of Models (builds upon Jeff's paper from last year)
+#    ReLU at top, learning a wide range of complex data distributions.
+#    SLRM at the bottom because they are inexpensive.
+#    Or use B-Trees at the bottom stage if the data is hard to learn.
+
+# #+BEGIN_COMMENT
+# Non-monotonically increasing models.
+# #+END_COMMENT
+
+# * Case Studies
+# ** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
+# Replacing a B-tree with a *Learned* _[Range] *Index*_ [Model].
+# *** Theory
+# + $\therefore$ *B-Tree* $\approx$ Regression Tree $\approx$ CDF $\equiv$ *Learned Range Index*.
+# *** Plan
+# + Experiment with a Naïve Learned Index
+#   ... to see how bad it is.
+# + Experiment with a much better Learned Index, the _RM-Index_.
+
+# ** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
+# #+BEGIN_COMMENT
+# $\equiv$
+# #+END_COMMENT
+# Why can we replace B-Trees with DL again?
+# #+BEGIN_COMMENT
+# An index ~is-a~ model. B-Tree ~is-a~ model. Range Index Model ~is-a~ CDF Model $F_X(x) = P(X \leq x)$.
+# Cumulative density function, of X (a variable)
+# Distribution function, of X
+#     $F_X(x) = P(X \leq x)$
+# 	Evaluated at x (specific value), it is the probability that X will take a value less than or equal to x.
+# #+END_COMMENT
+# *** B-Tree ~is-a~ model
+#  + B-Tree-Index :: $f: key \mapsto pos$
+#    - $pos$ is the position of a record, within a *sorted* array
+# *** B-Tree $\approx$ /Regression Tree/
+#  + _Regression Tree_ :: A decision tree with $\mathbb{R}$ targets.
+#    - Maps a key to a position with a min and max error.
+# #+BEGIN_COMMENT
+# + max/ min error :: before re-training or re-balancing for new data
+# #+END_COMMENT
+# *** Range Index Model ~is-a~ Cumulative Density Function (CDF)
+# #+BEGIN_QUOTE
+# A model which predicts the position given a key inside a sorted array effectively approximates a CDF (page 5).
+# #+END_QUOTE
+
+# + $\therefore$ *B-Tree* $\approx$ Regression Tree $\approx$ CDF $\equiv$ *Learned Range Index*.
+
+# ** Study 1 of 3: +B-Tree+ $\Rightarrow$ RT/RIM $\Rightarrow$ CDF $\Rightarrow$ Learned R.I.
+# #+BEGIN_COMMENT
+# + Implications
+#   1. Indexing literally requires learning a data distribution.
+#      A B-Tree learns the data distribution by building a regression tree.
+#      A linear regression model would learn the data distribution by minimising the squared error of a linear function.
+#   2. Estimating the distribution for a data set is a well known problem and learned indexes can benefit from decades of research.
+#   3. Learning the CDF plays a key role in optimising other types of index structures and potential algorithms.
+# #+END_COMMENT
+# *** Analogs
+# + Rebalanced vs Retrained
+# #+BEGIN_COMMENT
+# B-Tree only provides error guarantee over stored data, not new data.
+# #+END_COMMENT
+
+#   $\therefore$ min/max error guarantee only needed for training.
+
+# *** Cumulative Density Function (CDF)
+# $F_X(x) = P(X \leq x)$
+
+# A range index needs to be able to provide:
+# + point queries $\checkmark$
+# + range queries, sort order(records) $\equiv$ sort order(sorted look-up keys)) $\checkmark$
+# + guarantees on min-/max error.
+
+# CDF is good to go. It can be used as our Learned Range Index.
+# *** $\therefore$
+# Can replace index with other models including DL, so long as min and max error are similar to b-tree.
+
+
+# ** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
+# *** Experiment 1.1 - Naïve Learned Index with TensorFlow
+# + Objective :: Evaluate to study the technical requirements to replace B-Trees.
+# + Architecture ::
+#   + Two-layer fully conneted neural network (32:32).
+#   + 32 neurons/units per layer.
+#   + ReLU activation function.
+#   + Input features :: The timestamps of messages from web server logs
+#   + Labels :: The positions of the messages (actual line number?)
+#   + Optimisation goal :: Is not /simply/ error minimisation. Min-/max error
+#   #+BEGIN_COMMENT
+#   Indexing only needs a best guess of position.
+#   More important are guarantees of min and max error.
+# #+END_COMMENT
+# + Purpose :: Build secondary index over timestamps. Test performance.
+
+
+# ** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
+# *** Critique
+# This is a very naïve learned index, and that's how we want it. The researchers want to see how much faster a B-Tree is than a *naïve* neural network substitution. The answer is 300x faster.
+
+# + ReLU activation function :: $f(x) = max(0, x)$
+
+# The ReLU activation function is _the new sigmoid_ in that it's now the go-to activation function for deep learning.
+
+# It's typically used for hidden layers as it avoids vanishing gradient problem, yet we don't have a hidden layer. It's just a line. It's so basic, it's perfect.
+
+# Also, the researchers are after a sparse representation, matching one key to one position, so this property of the ReLU makes it an even better candidate.
+
+# I assume that 32 neurons are used because that is the max string length of the timestamp / record position.
+
+# #+BEGIN_COMMENT
+# sigmoid:
+# product of many smaller than 1 values goes to zero very quickly.
+# Since the state of the art of for Deep Learning has shown that more layers helps a lot, then this disadvantage of the Sigmoid function is a game killer. You just can't do Deep Learning with Sigmoid.
+# #+END_COMMENT
+
+# #+BEGIN_COMMENT
+# Input neurons are just inputs. They do not have a bias or an activation function. I don't think Relu is being used on the input layer.
+
+# The problem with ReLU is that some gradients can be fragile during training and can die.
+# It can cause a weight update which will make it never activate on any data point again.
+# Simply saying that ReLU could result in Dead Neurons.
+# #+END_COMMENT
+
+# #+BEGIN_COMMENT
+# Leaky ReLU
+# This is a step away from what we want. It's less naïve and we want naïveness.
+
+# Leaky ReLu could be used to fix the problem of dying neurons. It introduces a small slope to keep the updates alive.
+# #+END_COMMENT
+# ** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
+# *** Experiment 1.1 - Results
+# The researchers came to these findings:
+# + B-Trees are 2 orders of magnitude faster. Tensorflow is designed for larger models. Lots of overhead with Python.
+# + _A *single* neural network requires significantly more space and CPU time for the *last mile* of error minimisation_.
+# + B-Trees, or decision trees in general, are really good in overfitting the data (adding new data after balancing) with a *few* operations. They just divide up the space cheaply, using an if-statement.
+# + Other models can be significantly more efficient to approximate the general shape of a CDF.
+#   + So models like NNs might be more CPU and space efficient to narrow down the position for an item from the entire data set to a region of thousands.
+#   + But usually requires significantly more space and CPU time for the last mile.
+
+# These ideas are taken into account when designing the next model, the *RM-Index*.
+
+# #+BEGIN_COMMENT
+# From a top-level view, the CDF function appears very smooth and regular.
+# However, if one zooms in to the individual records, more and more
+# irregularities show; a well known statistical effect. Many data sets
+# have exactly this behavior: from the top the data distribution appears
+# very smooth, whereas as more is zoomed in the harder it is to
+# approximate the CDF because of the “randomness” on the individual level.
+# #+END_COMMENT
+
+# #+BEGIN_COMMENT
+# Polynomial regression can be solved in a 'least squares' sense.
+# #+END_COMMENT
+
+# #+BEGIN_COMMENT
+# Maybe keep this for 420.
+
+# 3. The typical ML optimization goal is to minimize the average error.
+
+#    However, for indexing, where we not only need the best guess where the item might be but also to actually find it, the min- and max-error as discussed earlier are more important.
+
+#    The min-error for a b-tree is 0 and the max-error is the page size.
+#    We only need strong guarantees for these values with learned indices.
+
+# 4. B-Trees are extremely cache-efficient as they keep the top nodes always in cache and access other pages
+# if needed. However, other models are not as cache and operation efficient. For example, standard neural
+# nets require all weights to compute a prediction, which has a high cost in the number of multiplications
+# and weights, which have to brought in from memory.
+# #+END_COMMENT
+
+# ** Study 1 of 3: Learned Range Index [Model] $\approx$ B-Tree
+
+# *** Challenges to replacing B-Trees
+# 1. Main challenge: balance model *complexity* with *accuracy*.
+# #+BEGIN_COMMENT
+# Remember SLM below.
+# #+END_COMMENT
+# 2. *Bounded cost* for inserts and lookups, taking advantage of the *cache*.
+# 3. Map keys to pages (*memory or disk?*)
+# 4. Last mile accuracy.
+#    This is the main reason why the Naïve Learned Model was so slow.
+#    Overcome by using the Recursive Model (RM) Index.
+
+# **** New terms
+# + Last mile accuracy
+# #+BEGIN_COMMENT
+# Reducing the min-/max-error in the order of hundreds from 100M records using a single model is very hard.
+
+# At the same time, reducing the error to 10k from 100M (a precision gain of 100*100 = 10,000) to replace the first 2 layers of a B-Tree through a model is much easier to achieve even with simple models.
+
+# Reducing the error from 10k to 100 is a simpler problem as the model can focus only on a subset of the data.
+# #+END_COMMENT
+# ** Study 1 of 3: Learned Range Index [Model] $\approx$ B-Tree
+# *** Recursive Model (RM) Index
+# Also known as the Recursive Regression Model.
+
+# One of the key contributions of this research paper.
+
+# A hierarchy of models.
+
+# At each stage the model takes the key as an input and based on it picks another model, until the final stage predicts the position.
+
+# Each prediction as you go down the hierarchy is picking an expert that has better knowledge about certain keys.
+
+# Solves the 'Last mile accuracy' problem.
+# #+BEGIN_COMMENT
+# Because it divides the space into smaller sub-ranges like a B-Tree/decision tree. Fewer number of operations towards the end.
+# #+END_COMMENT
+
+# #+BEGIN_COMMENT
+# Inspired by the mixture of experts work.
+
+# One way to think about the different models is that each model makes a prediction with a certain error about the position for the key and that the prediction is used to select the next model.
+# #+END_COMMENT
+
+# #+BEGIN_COMMENT
+# Because there is no search process between stages.
+
+# 5. Some may return positions outside of min-max error range, if lookup key doesnt exist in the set.
+# #+END_COMMENT
+
+# ** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
+# *** Experiment 1.2 - Hybrid Recursive Model Index
+# + Method ::
+#   + n stages, n models per stage = hyperparameters
+#   + Each net
+#     + 0 to 2 fully conneted hidden-layers
+#     + Up to 32 neurons/units per layer
+#   + ReLU activation functions
+#   + B-Trees.
+#   + Input features :: The timestamps of messages from web server logs
+#   + Labels :: The positions of the messages (actual line number?)
+#   + Datasets :: Blogs, Maps, web documents, lognormal (synthetic)
+#   + Optimisation goal :: Is not /simply/ error minimisation.
+#   + After training, the index is optimised by replacing NN models with B-Trees if absolute min-/max- error is above a predefined threshold value.
+# + Conclusions ::
+#   + Allow use to bound the worst case performance of learned indexes to the performance of B-Trees.
+
+#   #+BEGIN_COMMENT
+#   Indexing only needs a best guess of position.
+#   More important are guarantees of min and max error.
+# #+END_COMMENT
+
+# ** Study 1 of 3: +B-Tree+ $\Rightarrow$ Learned Range Index [Model]
+# *** Results of Experiment 1.2
+
+# Was the data used obtained ethically? Who knows.
+
+# * Testing
+# + They developed what they call the 'Leaning Index Framework', an index synthesis system.
+#   It accelerates the process of index synthesis and testing.
+
+# * Aim of review
+# ** Questions
+# 1. What is the specific problem or topic that this research addresses?
+#    1. Optimisation of an index requires *knowledge* of the data distribution. There is no guarantee of this. But it can be learned.
+#    2. Learned indices provide new ways to further optimise search engines.
+
+# 2. If the paper presents a new network, algorithm, or technique, how does it work?
+#    Is it suited to the task?
+
+#    + A new model architecture, the Recursive Regression Model
+
+#      Task: A substitute for a B-Tree.
+
+#      Inspired by work done in the paper "Outrageously Large Neural Networks".
+
+#      Constitution:
+#      Build a hierarchy of models.
+#      At each stage the model takes the key as an input and based on it picks another model, until the final stage predicts the position.
+
+#      Each model makes a prediction with a certain error about the position for the key and that the prediction is used to select the next model.
+
+#      Recursive Model Indices are *not trees*.
+
+#      The architecture divides the space into smaller sub-ranges like a B-tree/decision tree to make it easier to achieve to required last-mile accuracy with a fewer number of operations.
+
+#    + Is it suited to the task?
+#      The model divides the space into smaller sub-ranges like a B-Tree to make it easier to achieve the required "last mile" accuracy with fewer operations.
+#      This solves one of the aformentioned complications of replacing a B-Tree.
+
+#      The entire index can be represented as a sparse matrix-multiplication for a TPU/GPU.
+
+
+#    Has it been well tested, and does it really work as claimed? What are the limitations?
+#    1. This could change the way database systems are developed.
+
+# 3. What are Innovations
+
+# 4. *Learned* indices /can/ be 70% *faster* than cache-optimized B-Trees while *saving* an order-of-magnitude in *memory*.
+
+#    - Tested over several real-world datasets.
+
+# 5. Did they choose the architecture - why or why not?
+# Is it clearly described (all parameters, settings etc.)?
+# What strengths and/or weaknesses of the NN approach does it illustrate?
+
+
+# • Is the paper well structured and well written?
+
+# * Q&A
+# ** Evaluation
+# *** Was the paper well organised?
+# It is well structured and well written.
+# *** Problem and solution :BMCOL:B_block:
+# :PROPERTIES:
+# :BEAMER_env: block
+# :END:
+# + problem :: Real world data does not perfectly follow known patterns. Specialised solutions expensive.
+# + solution :: ML. Learn the model -> Synthesise specialised index. Low cost.
+# *** Strengths and/or weaknesses of the NN approach
+# The paper illustrated that...
+# *** Did they choose the right architectures? Why or why not?
+# Is it clearly described (all parameters, settings etc.)?
+# ** Own Questions
+# *** Paper
+
+# *** Research question defined?
+# What is the research question?
+
+# *** Generalization
+# Does the study allow generalization?
+# *** Limitations
+
+
+
+# *** Consistency
+# The discussion and conclusions should be consistent with the study’s results.
+
+# Results
+# in accordance with the researcher’s expectations
+# not in accordance.
+
+# Do the authors of the article you hold in hand do the same?
+
+# *** Ethics
