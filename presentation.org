@@ -54,6 +54,11 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
   - It's stochastic
     but configurable to be deterministic.
 
+*** Key concepts
+- prompt,
+- completion, and
+- tokens
+
 *** Search engine vs Database
   - _Relational Databases_ use a _B-Tree index_.
   - *Search engines* mostly use *inverted index*.q
