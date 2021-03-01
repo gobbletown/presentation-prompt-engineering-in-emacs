@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 12:28
+% Created 2021-03-02 Tue 12:29
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org04bbd95}
-\begin{frame}[label={sec:org2b6a749},fragile]{Following along}
+\label{sec:orge2366c6}
+\begin{frame}[label={sec:orgef188b6},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -54,10 +54,10 @@ github1s.com/semiosis/prompt-engineering-patterns\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org54321ef}
+\label{sec:orgfaf63e7}
 \subsection{GPT-3}
-\label{sec:org017dbf7}
-\begin{frame}[label={sec:org01a178f},fragile]{Text Generator}
+\label{sec:org87b5c57}
+\begin{frame}[label={sec:org325fd60},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -98,10 +98,11 @@ information explicit.
 \end{frame}
 
 \section{\texttt{pen.el}}
-\label{sec:org2506454}
+\label{sec:orgc1ae9f6}
 \subsection{A new programming paradigm}
-\label{sec:orga6e15d5}
-\begin{frame}[label={sec:orgdb7cce2}]{Prompt Engineering}
+\label{sec:org6f7305c}
+\begin{frame}[label={sec:orgbb8f36e}]{Prompt Engineering}
+\begin{block}{Characteristics}
 {\footnotesize
 \begin{itemize}
 \item declarative
@@ -115,5 +116,6 @@ information explicit.
 \item Unlocks new types of applications
 \end{itemize}
 }
+\end{block}
 \end{frame}
 \end{document}
