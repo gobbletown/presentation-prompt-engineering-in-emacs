@@ -35,6 +35,8 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 
 # #+INCLUDE: "beamer-config.org"
 
+#+BEAMER_THEME: Rochester [height=20pt]
+
 #+ATTR_LATEX: :center nil
 
 * Presentation
