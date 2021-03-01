@@ -95,5 +95,10 @@ completion must be below 2048 tokens (roughly
 - Speeds up development
 #+latex: }
 
-* =pen.el=
-** 
+* =semiosis=
+** =pen.el=
+*** =Prompts as functions=
+
+** =examplary=
+
+* Demonstrations
