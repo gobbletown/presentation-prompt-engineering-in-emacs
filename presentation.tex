@@ -1,0 +1,602 @@
+% Created 2021-03-01 Mon 21:53
+% Intended LaTeX compiler: pdflatex
+\documentclass[presentation]{beamer}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usetheme{default}
+\author{Shane Mulligan \\  }
+\date{\textit{<2021-03-01 Mon>}}
+\title{A presentation\ldots{} \\   \emph{\alert{Prompt Engineering in Emacs}} \\  }
+\hypersetup{
+ pdfauthor={Shane Mulligan \\  },
+ pdftitle={A presentation\ldots{} \\   \emph{\alert{Prompt Engineering in Emacs}} \\  },
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.0.91 (Org mode 9.3.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Presentation}
+\label{sec:org05daa9f}
+\subsection{"\emph{Prompt Engineering in Emacs}"}
+\label{sec:orgf1912c5}
+\begin{description}
+\item[{Date}] \textit{<2021-03-01 Mon>}
+\item[{Speaker}] Shane Mulligan
+\item[{URL}] \url{https://www.arxiv-vanity.com/papers/1712.01208/}
+\end{description}
+
+\begin{frame}[label={sec:org7c1eb9c}]{Repositories to follow along}
+\begin{center}
+\begin{tabular}{ll}
+Slides & \url{http://github.com/mullikine/presentation-prompt-engineering-in-emacs}\\
+DSL & \url{http://github.com/semiosis/examplary}\\
+emacs package & \url{http://github.com/semiosis/pen.el}\\
+prompts & \url{http://github.com/semiosis/prompts}\\
+prompt engineering & \url{http://github.com/mullikine/prompt-engineering-patterns}\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\section{Preliminaries}
+\label{sec:org8f6f8b7}
+\subsection{Background Knowledge}
+\label{sec:orgd7476e7}
+\begin{description}
+\item[{Deep learning models}] are function approximators.
+\end{description}
+
+\begin{frame}[label={sec:org70c951f}]{Search engine vs Database}
+\begin{itemize}
+\item \uline{Relational Databases} use a \uline{B-Tree index}.
+\item \alert{Search engines} mostly use \alert{inverted index}.q
+\item \uline{Relational Databases} give you what you \uline{asked for}.
+\item \alert{Search engines} give you what you \alert{wanted}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgbd4bfb5}]{Terminology}
+\begin{description}
+\item[{\uline{Indices}}] = indexes. Indexes just sounds wrong to me.
+\item[{\uline{Model}}] The \alert{set of functions} that describe the relations between variables.
+\end{description}
+
+\begin{quote}
+"Probabilistic and information theoretic methods are used to make results better anyway.
+Compromises are made anyway. Query reformulation, drift, etc.
+So it is just a natural progression to use NNs for some of these components? Am I right." -- A quote from myself.
+\end{quote}
+\end{frame}
+
+\subsection{More Background Knowledge}
+\label{sec:orge98c11f}
+\begin{frame}[label={sec:org2878a4e}]{The research works under the premise that}
+\begin{itemize}
+\item \alert{Indices are models} (set of functions). For example,
+\begin{description}
+\item[{B-Tree-Index}] \(f: key \mapsto pos\)
+\begin{itemize}
+\item \(pos\) is the position of a record, within a \alert{sorted} array
+\end{itemize}
+\item[{Hash-Index}] \(f: key \mapsto pos\)
+\begin{itemize}
+\item \(pos\) is the position of a record, within an \alert{unsorted} array
+\end{itemize}
+\item[{BitMap-Index}] indicates if a data record exists or not
+\end{description}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgcbb3e08}]{A new term is introduced!}
+\begin{description}
+\item[{\uline{\alert{Learned Index}}}] A deep-learning model with the function of an index structure.
+Auto-\emph{magestically} synthesised.
+\end{description}
+\end{frame}
+
+\section{Overview}
+\label{sec:orgcbaf9aa}
+\subsection{The Argument of the Paper}
+\label{sec:org8c650c6}
+\begin{frame}[label={sec:org58a0624}]{The researchers \uline{\emph{hypothesise}}\ldots{}}
+that \alert{All} existing index structures \alert{can} be replaced with learned indices.
+\begin{itemize}
+\item Paper does not argue that you \alert{should} necessarily.
+
+It's a novel approach to build indexes, complimenting existing work.
+
+\item Specifically, a model can
+\begin{enumerate}
+\item \alert{Learn} the \uline{sort order/structure} of \alert{keys},
+\item and use this to \alert{predict} the \uline{position/existence} of \alert{records}.
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org984b94a}]{They \uline{\emph{explore}}\ldots{}}
+\begin{itemize}
+\item The \alert{extent} to which learned models (including NNs) can replace traditional index for \alert{efficient data access}.
+\end{itemize}
+\end{frame}
+\begin{frame}[label={sec:org24b45a4}]{They \uline{\emph{speculate}}\ldots{}}
+\begin{itemize}
+\item This could fundamentally change the way database systems are developed in the future.
+\end{itemize}
+\end{frame}
+
+\subsection{Investigations / Case studies}
+\label{sec:org91dffd9}
+The studies performed in the paper are:
+\begin{itemize}
+\item About evaluating learned models on \alert{efficient data access}, the role of traditional indices.
+\item Done on CPUs rather than G/TPUs for a fairer comparison with existing methods, despite new hardware being the biggest reason to use learned indices.
+\end{itemize}
+
+\begin{frame}[label={sec:orgdeee86e}]{Theme 1: Can learned models speed up indices?}
+\begin{center}
+\begin{tabular}{ll}
+tested for read-only analytical workloads & (The majority of this paper)\\
+tested for write-heavy workloads & (Briefly covered)\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[label={sec:org546f684}]{Theme 2: Can replacing individual components speed up indices?}
+\begin{center}
+\begin{tabular}{lll}
+Study 1 / 3 & B-Tree & (Evaluated)\\
+Study 2 / 3 & Hash-index & (Evaluated)\\
+Study 3 / 3 & Bloom-filter & (Evaluated)\\
+ & other components (sorting, joins) & (Briefly covered)\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\subsection{Debunking the Myths}
+\label{sec:org626fc7f}
+\begin{frame}[label={sec:orgd6d3c71}]{\uline{Myths} or soon to become myths}
+\begin{enumerate}
+\item \sout{Machine learning cannot provide the same semantic guarantees}.
+
+\emph{Traditional} indices largely \alert{are already} \emph{learned} indices.
+\begin{itemize}
+\item B-Trees \uline{\alert{predict}} record position.
+\item Bloom filter is a binary \uline{\alert{classifier}} (like our Delta Rule network).
+It's a space-efficient probabilistic data structure. See: BitFunnel.
+\end{itemize}
+\end{enumerate}
+
+\begin{enumerate}
+\item \sout{NNs thought of as being very expensive to evaluate}.
+\begin{itemize}
+\item Huge \uline{\alert{benefits}}, especially on the next generation of hardware.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org9121f05}]{\uline{Trends}}
+\begin{itemize}
+\item GPUs and TPUs in phones
+
+The main reason to adopt learned indices (page 4).
+\item Scaling NN trivial. Cost = 0.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org2a04baf}]{\uline{Benefits} for databases}
+\begin{itemize}
+\item Remove the \sout{branch-heavy index structures} and add \alert{Neural Networks}
+\end{itemize}
+\end{frame}
+
+\subsection{Results and Conclusions sneak peak}
+\label{sec:org2e08403}
+\begin{frame}[label={sec:org9a04ddc}]{Results}
+\begin{enumerate}
+\item \alert{Learned} indices \emph{can} be 70\% \alert{faster} than cache-optimized B-Trees while \alert{saving} an order-of-magnitude in \alert{memory}.
+
+\begin{itemize}
+\item Tested over several real-world datasets.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org070d909}]{Conclusions}
+\begin{enumerate}
+\item \alert{Replacing components} of a data management system with \emph{\alert{learned}} models has \alert{far-reaching} implications.
+
+\begin{itemize}
+\item This work only provides a \alert{glimpse} of what might be possible\ldots{}
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\section{Introduction}
+\label{sec:org6795beb}
+\subsection{"Traditional" Index Structures}
+\label{sec:orgbae0c8e}
+\begin{frame}[label={sec:org8b27bce}]{Some examples}
+\emph{Covered in this paper by 3 separate studies:}
+\begin{enumerate}
+\item B-Trees
+\begin{itemize}
+\item Great for \alert{range} requests (retrieve all in a..b)
+\end{itemize}
+\item Hash-Maps
+\begin{itemize}
+\item \alert{key}-based lookups
+\end{itemize}
+\item Bloom-filters
+\begin{itemize}
+\item Set membership
+\item May give false positives, but no false negatives
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:orgd4971c7}]{Solidly built}
+\begin{itemize}
+\item Highly Optimised
+\begin{itemize}
+\item Memory
+\item Cache
+\item CPU
+\end{itemize}
+\item Assume worst case
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orga2f1ead}]{It works because\ldots{}}
+\begin{itemize}
+\item \alert{Knowing} the exact data distribution \alert{enables optimisation} of the index.
+
+\ldots{}But then we\ldots{} \emph{must} know. But we don't always.
+\end{itemize}
+\end{frame}
+
+\subsection{Benefits of replacing B-Trees with Learned Indices}
+\label{sec:orge9e4dec}
+\begin{frame}[label={sec:org5a380cf}]{Benefits of replacing B-Trees with Learned Indices}
+\begin{enumerate}
+\item B-Tree lookup \(O(\log_n) \Longrightarrow O(n)\) (if SLM)
+\begin{description}
+\item[{Simple Linear [Regression] Model}] predictor,  1 mul, 1 add\ldots{}
+\end{description}
+\end{enumerate}
+
+\begin{enumerate}
+\item ML accelerators (GPU/TPU)
+If the entire learned index can fit into GPU's memory, that's 1M NN ops every 30 cycles with current technology.
+\item Mixture of Models (builds upon Jeff's paper from last year)
+ReLU at top, learning a wide range of complex data distributions.
+SLRM at the bottom because they are inexpensive.
+Or use B-Trees at the bottom stage if the data is hard to learn.
+\end{enumerate}
+\end{frame}
+
+\section{Case Studies}
+\label{sec:orgd0b7891}
+\subsection{Study 1 of 3: \sout{B-Tree} \(\Rightarrow\) Learned Range Index [Model]}
+\label{sec:org8a8dfdd}
+Replacing a B-tree with a \alert{Learned} \uline{[Range] \alert{Index}} [Model].
+\begin{frame}[label={sec:org8581bf0}]{Theory}
+\begin{itemize}
+\item \(\therefore\) \alert{B-Tree} \(\approx\) Regression Tree \(\approx\) CDF \(\equiv\) \alert{Learned Range Index}.
+\end{itemize}
+\end{frame}
+\begin{frame}[label={sec:orgdfd13d6}]{Plan}
+\begin{itemize}
+\item Experiment with a Naïve Learned Index
+\ldots{} to see how bad it is.
+\item Experiment with a much better Learned Index, the \uline{RM-Index}.
+\end{itemize}
+\end{frame}
+
+\subsection{Study 1 of 3: \sout{B-Tree} \(\Rightarrow\) Learned Range Index [Model]}
+\label{sec:org6219580}
+Why can we replace B-Trees with DL again?
+\begin{frame}[label={sec:org9de2d07},fragile]{B-Tree \texttt{is-a} model}
+ \begin{description}
+\item[{B-Tree-Index}] \(f: key \mapsto pos\)
+\begin{itemize}
+\item \(pos\) is the position of a record, within a \alert{sorted} array
+\end{itemize}
+\end{description}
+\end{frame}
+\begin{frame}[label={sec:orgc22cc02}]{B-Tree \(\approx\) \emph{Regression Tree}}
+\begin{description}
+\item[{\uline{Regression Tree}}] A decision tree with \(\mathbb{R}\) targets.
+\begin{itemize}
+\item Maps a key to a position with a min and max error.
+\end{itemize}
+\end{description}
+\end{frame}
+\begin{frame}[label={sec:org05451a2},fragile]{Range Index Model \texttt{is-a} Cumulative Density Function (CDF)}
+ \begin{quote}
+A model which predicts the position given a key inside a sorted array effectively approximates a CDF (page 5).
+\end{quote}
+
+\begin{itemize}
+\item \(\therefore\) \alert{B-Tree} \(\approx\) Regression Tree \(\approx\) CDF \(\equiv\) \alert{Learned Range Index}.
+\end{itemize}
+\end{frame}
+
+\subsection{Study 1 of 3: \sout{B-Tree} \(\Rightarrow\) RT/RIM \(\Rightarrow\) CDF \(\Rightarrow\) Learned R.I.}
+\label{sec:orgc186b1a}
+\begin{frame}[label={sec:orga91dc68}]{Analogs}
+\begin{itemize}
+\item Rebalanced vs Retrained
+\end{itemize}
+
+\(\therefore\) min/max error guarantee only needed for training.
+\end{frame}
+
+\begin{frame}[label={sec:org5adb484}]{Cumulative Density Function (CDF)}
+\(F_X(x) = P(X \leq x)\)
+
+A range index needs to be able to provide:
+\begin{itemize}
+\item point queries \(\checkmark\)
+\item range queries, sort order(records) \(\equiv\) sort order(sorted look-up keys)) \(\checkmark\)
+\item guarantees on min-/max error.
+\end{itemize}
+
+CDF is good to go. It can be used as our Learned Range Index.
+\end{frame}
+\begin{frame}[label={sec:org956438f}]{\(\therefore\)}
+Can replace index with other models including DL, so long as min and max error are similar to b-tree.
+\end{frame}
+
+
+\subsection{Study 1 of 3: \sout{B-Tree} \(\Rightarrow\) Learned Range Index [Model]}
+\label{sec:orgd733eac}
+\begin{frame}[label={sec:org34049c4}]{Experiment 1.1 - Naïve Learned Index with TensorFlow}
+\begin{description}
+\item[{Objective}] Evaluate to study the technical requirements to replace B-Trees.
+\item[{Architecture}] \begin{itemize}
+\item Two-layer fully conneted neural network (32:32).
+\item 32 neurons/units per layer.
+\item ReLU activation function.
+\item[{Input features}] The timestamps of messages from web server logs
+\item[{Labels}] The positions of the messages (actual line number?)
+\item[{Optimisation goal}] Is not \emph{simply} error minimisation. Min-/max error
+\end{itemize}
+\item[{Purpose}] Build secondary index over timestamps. Test performance.
+\end{description}
+\end{frame}
+
+
+\subsection{Study 1 of 3: \sout{B-Tree} \(\Rightarrow\) Learned Range Index [Model]}
+\label{sec:org31398a6}
+\begin{frame}[label={sec:org0e944ac}]{Critique}
+This is a very naïve learned index, and that's how we want it. The researchers want to see how much faster a B-Tree is than a \alert{naïve} neural network substitution. The answer is 300x faster.
+
+\begin{description}
+\item[{ReLU activation function}] \(f(x) = max(0, x)\)
+\end{description}
+
+The ReLU activation function is \uline{the new sigmoid} in that it's now the go-to activation function for deep learning.
+
+It's typically used for hidden layers as it avoids vanishing gradient problem, yet we don't have a hidden layer. It's just a line. It's so basic, it's perfect.
+
+Also, the researchers are after a sparse representation, matching one key to one position, so this property of the ReLU makes it an even better candidate.
+
+I assume that 32 neurons are used because that is the max string length of the timestamp / record position.
+\end{frame}
+\subsection{Study 1 of 3: \sout{B-Tree} \(\Rightarrow\) Learned Range Index [Model]}
+\label{sec:org135ef4e}
+\begin{frame}[label={sec:orga9e6342}]{Experiment 1.1 - Results}
+The researchers came to these findings:
+\begin{itemize}
+\item B-Trees are 2 orders of magnitude faster. Tensorflow is designed for larger models. Lots of overhead with Python.
+\item \uline{A \alert{single} neural network requires significantly more space and CPU time for the \alert{last mile} of error minimisation}.
+\item B-Trees, or decision trees in general, are really good in overfitting the data (adding new data after balancing) with a \alert{few} operations. They just divide up the space cheaply, using an if-statement.
+\item Other models can be significantly more efficient to approximate the general shape of a CDF.
+\begin{itemize}
+\item So models like NNs might be more CPU and space efficient to narrow down the position for an item from the entire data set to a region of thousands.
+\item But usually requires significantly more space and CPU time for the last mile.
+\end{itemize}
+\end{itemize}
+
+These ideas are taken into account when designing the next model, the \alert{RM-Index}.
+\end{frame}
+
+\subsection{Study 1 of 3: Learned Range Index [Model] \(\approx\) B-Tree}
+\label{sec:org57fe07d}
+
+\begin{frame}[label={sec:org431afe2}]{Challenges to replacing B-Trees}
+\begin{enumerate}
+\item Main challenge: balance model \alert{complexity} with \alert{accuracy}.
+\end{enumerate}
+
+\begin{enumerate}
+\item \alert{Bounded cost} for inserts and lookups, taking advantage of the \alert{cache}.
+\item Map keys to pages (\alert{memory or disk?})
+\item Last mile accuracy.
+This is the main reason why the Naïve Learned Model was so slow.
+Overcome by using the Recursive Model (RM) Index.
+\end{enumerate}
+
+\begin{block}{New terms}
+\begin{itemize}
+\item Last mile accuracy
+\end{itemize}
+\end{block}
+\end{frame}
+\subsection{Study 1 of 3: Learned Range Index [Model] \(\approx\) B-Tree}
+\label{sec:org2ada132}
+\begin{frame}[label={sec:org4216ef1}]{Recursive Model (RM) Index}
+Also known as the Recursive Regression Model.
+
+One of the key contributions of this research paper.
+
+A hierarchy of models.
+
+At each stage the model takes the key as an input and based on it picks another model, until the final stage predicts the position.
+
+Each prediction as you go down the hierarchy is picking an expert that has better knowledge about certain keys.
+
+Solves the 'Last mile accuracy' problem.
+\end{frame}
+
+\subsection{Study 1 of 3: \sout{B-Tree} \(\Rightarrow\) Learned Range Index [Model]}
+\label{sec:orge278fe0}
+\begin{frame}[label={sec:orgd51c12e}]{Experiment 1.2 - Hybrid Recursive Model Index}
+\begin{description}
+\item[{Method}] \begin{itemize}
+\item n stages, n models per stage = hyperparameters
+\item Each net
+\begin{itemize}
+\item 0 to 2 fully conneted hidden-layers
+\item Up to 32 neurons/units per layer
+\end{itemize}
+\item ReLU activation functions
+\item B-Trees.
+\item[{Input features}] The timestamps of messages from web server logs
+\item[{Labels}] The positions of the messages (actual line number?)
+\item[{Datasets}] Blogs, Maps, web documents, lognormal (synthetic)
+\item[{Optimisation goal}] Is not \emph{simply} error minimisation.
+\item After training, the index is optimised by replacing NN models with B-Trees if absolute min-/max- error is above a predefined threshold value.
+\end{itemize}
+\item[{Conclusions}] \begin{itemize}
+\item Allow use to bound the worst case performance of learned indexes to the performance of B-Trees.
+\end{itemize}
+\end{description}
+\end{frame}
+
+\subsection{Study 1 of 3: \sout{B-Tree} \(\Rightarrow\) Learned Range Index [Model]}
+\label{sec:org8c59bcd}
+\begin{frame}[label={sec:org0e5915f}]{Results of Experiment 1.2}
+Was the data used obtained ethically? Who knows.
+\end{frame}
+
+\section{Testing}
+\label{sec:org3fd13e5}
+\begin{itemize}
+\item They developed what they call the 'Leaning Index Framework', an index synthesis system.
+It accelerates the process of index synthesis and testing.
+\end{itemize}
+
+\section{Aim of review}
+\label{sec:orgbc25655}
+\subsection{Questions}
+\label{sec:orgc7dfd98}
+\begin{enumerate}
+\item What is the specific problem or topic that this research addresses?
+\begin{enumerate}
+\item Optimisation of an index requires \alert{knowledge} of the data distribution. There is no guarantee of this. But it can be learned.
+\item Learned indices provide new ways to further optimise search engines.
+\end{enumerate}
+
+\item If the paper presents a new network, algorithm, or technique, how does it work?
+Is it suited to the task?
+
+\begin{itemize}
+\item A new model architecture, the Recursive Regression Model
+
+Task: A substitute for a B-Tree.
+
+Inspired by work done in the paper "Outrageously Large Neural Networks".
+
+Constitution:
+Build a hierarchy of models.
+At each stage the model takes the key as an input and based on it picks another model, until the final stage predicts the position.
+
+Each model makes a prediction with a certain error about the position for the key and that the prediction is used to select the next model.
+
+Recursive Model Indices are \alert{not trees}.
+
+The architecture divides the space into smaller sub-ranges like a B-tree/decision tree to make it easier to achieve to required last-mile accuracy with a fewer number of operations.
+
+\item Is it suited to the task?
+The model divides the space into smaller sub-ranges like a B-Tree to make it easier to achieve the required "last mile" accuracy with fewer operations.
+This solves one of the aformentioned complications of replacing a B-Tree.
+
+The entire index can be represented as a sparse matrix-multiplication for a TPU/GPU.
+\end{itemize}
+\end{enumerate}
+
+
+Has it been well tested, and does it really work as claimed? What are the limitations?
+\begin{enumerate}
+\item This could change the way database systems are developed.
+\end{enumerate}
+\begin{enumerate}
+\item What are Innovations
+
+\item \alert{Learned} indices \emph{can} be 70\% \alert{faster} than cache-optimized B-Trees while \alert{saving} an order-of-magnitude in \alert{memory}.
+
+\begin{itemize}
+\item Tested over several real-world datasets.
+\end{itemize}
+
+\item Did they choose the architecture - why or why not?
+\end{enumerate}
+Is it clearly described (all parameters, settings etc.)?
+What strengths and/or weaknesses of the NN approach does it illustrate?
+
+
+• Is the paper well structured and well written?
+
+\section{Q\&A}
+\label{sec:org9f6e412}
+\subsection{Evaluation}
+\label{sec:org1a9297a}
+\begin{frame}[label={sec:org90217c1}]{Was the paper well organised?}
+It is well structured and well written.
+\end{frame}
+\begin{frame}[label={sec:org1968a3b}]{Problem and solution}
+\begin{description}
+\item[{problem}] Real world data does not perfectly follow known patterns. Specialised solutions expensive.
+\item[{solution}] ML. Learn the model -> Synthesise specialised index. Low cost.
+\end{description}
+\end{frame}
+\begin{frame}[label={sec:orge9b27a7}]{Strengths and/or weaknesses of the NN approach}
+The paper illustrated that\ldots{}
+\end{frame}
+\begin{frame}[label={sec:orgc585682}]{Did they choose the right architectures? Why or why not?}
+Is it clearly described (all parameters, settings etc.)?
+\end{frame}
+\subsection{Own Questions}
+\label{sec:org93ecb09}
+\begin{frame}[label={sec:orgd8abcd8}]{Paper}
+\end{frame}
+
+\begin{frame}[label={sec:org66733af}]{Research question defined?}
+What is the research question?
+\end{frame}
+
+\begin{frame}[label={sec:org7790d67}]{Generalization}
+Does the study allow generalization?
+\end{frame}
+\begin{frame}[label={sec:org51fb7a1}]{Limitations}
+\end{frame}
+
+
+
+\begin{frame}[label={sec:orgf523bef}]{Consistency}
+The discussion and conclusions should be consistent with the study’s results.
+
+Results
+in accordance with the researcher’s expectations
+not in accordance.
+
+Do the authors of the article you hold in hand do the same?
+\end{frame}
+
+\begin{frame}[label={sec:org4ac1ae9}]{Ethics}
+\end{frame}
+\end{document}
