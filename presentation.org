@@ -66,6 +66,12 @@ Combined, the text prompt and generated
 completion must be below 2048 tokens (roughly
 ~1500 words).
 
+** A new programming paradigm
+- declarative
+  - Like html
+- stochastic
+  - Like problog
+
 *** Terminology
 + _Indices_ :: = indexes. Indexes just sounds wrong to me.
 + _Model_ :: The *set of functions* that describe the relations between variables.
