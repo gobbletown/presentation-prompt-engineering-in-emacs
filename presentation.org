@@ -86,6 +86,8 @@ completion must be below 2048 tokens (roughly
 #+latex: }
 
 ** A new programming paradigm
+*** Prompt Engineering
+#+latex: {\footnotesize
 - declarative
   - Like html
 - stochastic
@@ -97,6 +99,7 @@ completion must be below 2048 tokens (roughly
 Compromises are made anyway. Query reformulation, drift, etc.
 So it is just a natural progression to use NNs for some of these components? Am I right." -- A quote from myself.
 #+END_QUOTE
+#+latex: }
 
 ** 
 
