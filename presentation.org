@@ -44,10 +44,11 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 + URL :: https://www.arxiv-vanity.com/papers/1712.01208/
 
 *** Repositories to follow along
-| Slides        | http://github.com/mullikine/presentation-prompt-engineering-in-emacs |
-| DSL           | http://github.com/semiosis/examplary                                 |
-| emacs package | http://github.com/semiosis/pen.el                                    |
-| prompts       | http://github.com/semiosis/prompts                                   |
+| Slides             | http://github.com/mullikine/presentation-prompt-engineering-in-emacs |
+| DSL                | http://github.com/semiosis/examplary                                 |
+| emacs package      | http://github.com/semiosis/pen.el                                    |
+| prompts            | http://github.com/semiosis/prompts                                   |
+| prompt engineering | http://github.com/mullikine/prompt-engineering-patterns              |
 
 * Preliminaries
 ** Background Knowledge
