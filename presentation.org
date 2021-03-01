@@ -39,11 +39,13 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 
 * Presentation
 *** Repositories to follow along
+#+latex: {\footnotesize
 | http://github.com/mullikine/presentation-prompt-engineering-in-emacs |
 | http://github.com/semiosis/examplary                                 |
 | http://github.com/semiosis/pen.el                                    |
 | http://github.com/semiosis/prompts                                   |
-| http://github.com/semiosis/prompt-engineering-patterns      |
+| http://github.com/semiosis/prompt-engineering-patterns               |
+#+latex: }
 
 * Preliminaries
 ** Background Knowledge
