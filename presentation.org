@@ -44,8 +44,9 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 + URL :: https://www.arxiv-vanity.com/papers/1712.01208/
 
 *** Repositories to follow along
-| Slides | http://github.com/mullikine/presentation-prompt-engineering-in-emacs |
-| DSL    | http://github.com/semiosis/examplary                                 |
+| Slides        | http://github.com/mullikine/presentation-prompt-engineering-in-emacs |
+| DSL           | http://github.com/semiosis/examplary                                 |
+| emacs package | http://github.com/semiotics/pen.el                                   |
 
 * Preliminaries
 ** Background Knowledge
