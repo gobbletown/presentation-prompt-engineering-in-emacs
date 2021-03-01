@@ -38,7 +38,7 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 #+ATTR_LATEX: :center nil
 
 * Presentation
-*** Repositories to follow along
+*** Repositories for following along
 #+latex: {\footnotesize
 | http://github.com/mullikine/presentation-prompt-engineering-in-emacs |
 | http://github.com/semiosis/examplary                                 |
