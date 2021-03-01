@@ -51,7 +51,8 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 ** Background Knowledge
 - =GPT-3= is a =seq2seq= model
   A text generator.
-  - It's stochastic, but can be configured to be deterministic.
+  - It's stochastic
+    but configurable to be deterministic.
 
 *** Search engine vs Database
   - _Relational Databases_ use a _B-Tree index_.
