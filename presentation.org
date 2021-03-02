@@ -105,6 +105,8 @@ Generate prompt functions for the files in the
 prompts directory Function names are prefixed
 with =pen-pf-= for easy searching.
 
+http://github.com/semiosis/prompts
+
 ** =examplary=
 
 * Demonstrations
