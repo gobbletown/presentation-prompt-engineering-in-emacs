@@ -153,7 +153,7 @@ Taken from Prompt Design 101.
 These are manual techniques which should be
 encoded in a DSL when generating prompts.
 
-**** Reflective description of the task
+**** 1. Reflective description of the task
 State what the prompt does at the start At the
 start of the example we state in plain
 language what the classifier does:
@@ -169,7 +169,13 @@ be
 and you’ll end needing to provide fewer
 examples.
 
-**** Use separators between examples
+*** Design patterns
+Taken from Prompt Design 101.
+
+These are manual techniques which should be
+encoded in a DSL when generating prompts.
+
+**** 2. Use separators between examples
 
 Example: =###=.
 
