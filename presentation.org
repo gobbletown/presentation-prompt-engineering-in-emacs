@@ -164,6 +164,18 @@ be
 and you’ll end needing to provide fewer
 examples.
 
+**** Use separators between examples
+
+Example: =###=.
+
+You can use other characters or line breaks,
+but “###” works pretty consistently and is
+also an easy to use stop sequence.
+
+Whatever separator you use, make sure that
+it’s clear to the API where an example starts
+and stops.
+
 * Explanations
 ** Using =pen.el=
 *** Prompt YAML format Part 1
