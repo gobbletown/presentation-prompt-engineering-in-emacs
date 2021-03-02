@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 13:22
+% Created 2021-03-02 Tue 13:23
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org7349050}
-\begin{frame}[label={sec:org24b9d35},fragile]{Following along}
+\label{sec:org89032a9}
+\begin{frame}[label={sec:org0562c2b},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -42,7 +42,7 @@ github1s.com/semiosis/pen.el\\
 github1s.com/semiosis/prompts\\
 github1s.com/semiosis/prompt-engineering-patterns\\
 github1s.com/minimaxir/gpt-3-client\\
-\url{https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby}\\
+\\
 \end{tabular}
 \end{center}
 }
@@ -58,10 +58,10 @@ github1s.com/minimaxir/gpt-3-client\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org7ac7c2d}
+\label{sec:org869e3da}
 \subsection{GPT-3}
-\label{sec:orgdc173f8}
-\begin{frame}[label={sec:org97ac848},fragile]{Text Generator}
+\label{sec:org940a07f}
+\begin{frame}[label={sec:org76fef22},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -100,8 +100,8 @@ information explicit.
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:org7d5b69a}
-\begin{frame}[label={sec:org4432f7b},fragile]{Prompt Engineering}
+\label{sec:org2882506}
+\begin{frame}[label={sec:org9716109},fragile]{Prompt Engineering}
  \begin{block}{Characteristics}
 {\footnotesize
 \begin{itemize}
@@ -115,20 +115,20 @@ information explicit.
 \end{frame}
 
 \section{\texttt{semiosis}}
-\label{sec:org1a2f991}
+\label{sec:org00922c0}
 \subsection{\texttt{pen.el}}
-\label{sec:orgf1d0f3e}
-\begin{frame}[label={sec:org73bfc6c},fragile]{\texttt{Prompts as functions}}
+\label{sec:orgbe1213f}
+\begin{frame}[label={sec:org99f25d2},fragile]{\texttt{Prompts as functions}}
 \end{frame}
 
 \subsection{\texttt{examplary}}
-\label{sec:org97a613d}
+\label{sec:orge40a753}
 
 \section{Demonstrations}
-\label{sec:org34d881f}
+\label{sec:orgc98ce29}
 \subsection{Using \texttt{pen.el}}
-\label{sec:orge1853c2}
-\begin{frame}[label={sec:org96e0ecc},fragile]{Some prompts I've made}
+\label{sec:orgec06e45}
+\begin{frame}[label={sec:org5574bdc},fragile]{Some prompts I've made}
  \begin{block}{\texttt{generate-vim-command.prompt}}
 {\footnotesize
 \begin{verbatim}
@@ -152,8 +152,18 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orga59e442}]{Create a prompt}
+\begin{frame}[label={sec:orgd5db367}]{Create a prompt}
 \begin{block}{Ask the audience}
 \end{block}
+\end{frame}
+
+\section{Appendix}
+\label{sec:orgcd5e7b2}
+\subsection{Additional reading}
+\label{sec:org9c9efed}
+\begin{frame}[label={sec:orgc600169}]{Tutorials}
+{\footnotesize
+\url{https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby}
+}
 \end{frame}
 \end{document}
