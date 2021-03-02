@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 15:43
+% Created 2021-03-02 Tue 15:57
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org53b69f8}
-\begin{frame}[label={sec:orge037487},fragile]{Following along}
+\label{sec:org6f5f279}
+\begin{frame}[label={sec:org9138978},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -74,10 +74,10 @@
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:orgafc4740}
+\label{sec:org85c87de}
 \subsection{GPT-3}
-\label{sec:orga4c25ba}
-\begin{frame}[label={sec:orgb105588},fragile]{Text Generator}
+\label{sec:org47f7f3a}
+\begin{frame}[label={sec:orgd090592},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -116,8 +116,8 @@ information explicit.
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:orgec5b3f0}
-\begin{frame}[label={sec:orgba8ef17},fragile]{Prompt Engineering}
+\label{sec:orgc1cf667}
+\begin{frame}[label={sec:orgcd4976f},fragile]{Prompt Engineering}
  \begin{block}{Characteristics}
 {\footnotesize
 \begin{itemize}
@@ -130,7 +130,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org09c9251},fragile]{Some prompts I've made}
+\begin{frame}[label={sec:orga55edeb},fragile]{Some prompts I've made}
  \begin{block}{\texttt{generate-vim-command.prompt}}
 {\footnotesize
 \begin{verbatim}
@@ -154,7 +154,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org05abbe1}]{Tasks suitable for GPT-3}
+\begin{frame}[label={sec:org6082a45}]{Tasks suitable for GPT-3}
 \begin{block}{Classification}
 \begin{itemize}
 \item Tweet Sentiment
@@ -171,7 +171,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org3245f08}]{Tasks suitable for GPT-3}
+\begin{frame}[label={sec:org2f67c23}]{Tasks suitable for GPT-3}
 \begin{block}{Generation}
 \begin{itemize}
 \item Idea Generator
@@ -185,7 +185,7 @@ Come up with silly inventions.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org050f279}]{Tasks suitable for GPT-3}
+\begin{frame}[label={sec:org9aa017f}]{Tasks suitable for GPT-3}
 \begin{block}{Conversation}
 \begin{itemize}
 \item Q\&A agent
@@ -198,33 +198,30 @@ Come up with silly inventions.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgaf36051},fragile]{Design patterns}
+\begin{frame}[label={sec:org82e47ac},fragile]{Design patterns}
  Taken from Prompt Design 101.
 
 These are manual techniques which should be
 encoded in a DSL when generating prompts.
 
 \begin{block}{1. Reflective description of the task}
-State what the prompt does at the start At the
-start of the example we state in plain
+State what the prompt does at the start.
+
+At the start of the example we state in plain
 language what the classifier does:
 
 \begin{verbatim}
-1  _This is a tweet sentiment classifier._
+1  This is a tweet sentiment classifier.
 \end{verbatim}
 
-By stating this up front
-
-it helps the API understand much more quickly
-what the goal of the response is supposed to
-be
-
-and you’ll end needing to provide fewer
-examples.
+By stating this up front, it helps the API
+understand much more quickly what the goal of
+the response is supposed to be and you’ll end
+needing to provide fewer examples.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org6bf3e2c},fragile]{Design patterns}
+\begin{frame}[label={sec:orgf411d83},fragile]{Design patterns}
  Taken from Prompt Design 101.
 
 These are manual techniques which should be
@@ -243,7 +240,7 @@ and stops.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orga20b023},fragile]{Design patterns}
+\begin{frame}[label={sec:orgc89b452},fragile]{Design patterns}
  Taken from Prompt Design 101.
 
 These are manual techniques which should be
@@ -277,7 +274,7 @@ one API call.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org76c83c4},fragile]{Design patterns}
+\begin{frame}[label={sec:org2d0e221},fragile]{Design patterns}
  Taken from Prompt Design 101.
 
 These are manual techniques which should be
@@ -306,7 +303,7 @@ encoded in a DSL when generating prompts.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org8b39637},fragile]{Design patterns}
+\begin{frame}[label={sec:org1b0c300},fragile]{Design patterns}
  Taken from Prompt Design 101.
 
 These are manual techniques which should be
@@ -327,7 +324,7 @@ encoded in a DSL when generating prompts.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org1ff29e8}]{Techniques}
+\begin{frame}[label={sec:org47ccfce}]{Techniques}
 \begin{block}{Query Reformulation}
 \url{https://www.sciencedirect.com/topics/computer-science/query-reformulation}
 
@@ -347,10 +344,10 @@ responses.
 \end{frame}
 
 \section{Explanations}
-\label{sec:org2cdfb2b}
+\label{sec:org288ddc9}
 \subsection{Using \texttt{pen.el}}
-\label{sec:org3b82131}
-\begin{frame}[label={sec:orgbf83815},fragile]{\texttt{pen.el}}
+\label{sec:org6b71f77}
+\begin{frame}[label={sec:orgea374b2},fragile]{\texttt{pen.el}}
  \begin{block}{\texttt{pen.el}: Prompt Engineering in emacs}
 {\footnotesize
 \texttt{pen.el} facilitates the creation,
@@ -368,8 +365,8 @@ a Language Model such as GPT-3.
 \end{frame}
 
 \subsection{Using \texttt{pen.el}}
-\label{sec:orgde40732}
-\begin{frame}[label={sec:org92fdd83},fragile]{\texttt{pen.el}}
+\label{sec:org1ff47e8}
+\begin{frame}[label={sec:org501bb60},fragile]{\texttt{pen.el}}
  \begin{block}{\texttt{pen.el} modes Part 1}
 {\footnotesize
 \uline{\alert{Prompt-Engineering Minor Mode}}
@@ -392,8 +389,8 @@ which are expected.
 \end{frame}
 
 \subsection{Using \texttt{pen.el}}
-\label{sec:orgfe1e2f2}
-\begin{frame}[label={sec:org5d5b7fd},fragile]{\texttt{pen.el}}
+\label{sec:org01d1669}
+\begin{frame}[label={sec:org0a2d80e},fragile]{\texttt{pen.el}}
  \begin{block}{\texttt{pen.el} modes Part 2}
 {\footnotesize
 \uline{\alert{Pen Messenger Minor Mode}}
@@ -415,7 +412,7 @@ workflow of training on OpenAI's API.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org990ffb1},fragile]{Prompt YAML format Part 1}
+\begin{frame}[label={sec:orgde15bf1},fragile]{Prompt YAML format Part 1}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
  1  title: "meeting bullet points to summary"
@@ -433,7 +430,7 @@ workflow of training on OpenAI's API.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org5cc1753},fragile]{Prompt YAML format Part 2}
+\begin{frame}[label={sec:orga0afca5},fragile]{Prompt YAML format Part 2}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  top-p: 1
@@ -453,7 +450,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgc329d06},fragile]{Prompt YAML format: Part 3}
+\begin{frame}[label={sec:org4411a4c},fragile]{Prompt YAML format: Part 3}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  vars:
@@ -470,10 +467,10 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{frame}
 
 \section{\texttt{semiosis}}
-\label{sec:orgd89bc71}
+\label{sec:org47590b3}
 \subsection{\texttt{pen.el}}
-\label{sec:org3374235}
-\begin{frame}[label={sec:org3a47f9f},fragile]{\texttt{Prompts as functions}}
+\label{sec:org4ef0b34}
+\begin{frame}[label={sec:orgbee564f},fragile]{\texttt{Prompts as functions}}
  \begin{block}{\texttt{pen-generate-prompt-functions}}
 Generate prompt functions for the files in the
 prompts directory Function names are prefixed
@@ -484,8 +481,8 @@ with \texttt{pen-pf-} for easy searching.
 \end{frame}
 
 \subsection{\texttt{examplary}}
-\label{sec:org7cbe978}
-\begin{frame}[label={sec:org859ac69},fragile]{\texttt{examplary}: examples as functions}
+\label{sec:orgee37a4a}
+\begin{frame}[label={sec:orgab999c1},fragile]{\texttt{examplary}: examples as functions}
  An example-oriented DSL that can be used to
 construct and compose NLP tasks.
 
@@ -506,7 +503,7 @@ code a little more terse.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org32f6a6c},fragile]{\texttt{examplary}: examples as functions}
+\begin{frame}[label={sec:org18a5ee5},fragile]{\texttt{examplary}: examples as functions}
  \begin{block}{Analogy}
 {\footnotesize
 \begin{verbatim}
@@ -529,8 +526,8 @@ code a little more terse.
 \end{frame}
 
 \section{Demonstrations}
-\label{sec:org12bf168}
-\begin{frame}[label={sec:org550daa4}]{Something funny}
+\label{sec:orgefff9be}
+\begin{frame}[label={sec:orgf5a403b}]{Something funny}
 \begin{block}{Vexate a simple instruction}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./complicate.png}
@@ -538,7 +535,7 @@ code a little more terse.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org3af8ae6}]{Something funny}
+\begin{frame}[label={sec:org63befbd}]{Something funny}
 \begin{block}{How to crack an egg}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./crack-an-egg.png}
@@ -546,7 +543,7 @@ code a little more terse.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgcb2f546}]{Create a prompt}
+\begin{frame}[label={sec:orgbd07335}]{Create a prompt}
 \begin{block}{Ask the audience}
 \begin{itemize}
 \item What type of text to generate
@@ -558,10 +555,10 @@ code a little more terse.
 \end{frame}
 
 \section{Appendix}
-\label{sec:org4acf865}
+\label{sec:org3420833}
 \subsection{Additional reading}
-\label{sec:org438c4d3}
-\begin{frame}[label={sec:orga08c979}]{Tutorials}
+\label{sec:org9c78908}
+\begin{frame}[label={sec:orgce54b02}]{Tutorials}
 \begin{block}{Ruby}
 {\footnotesize
 \url{https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby}
