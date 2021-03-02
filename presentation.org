@@ -260,6 +260,8 @@ https://github.com/pemistahl/grex
 **** Vexate a simple instruction
 [[./complicate.png]]
 
+**** How to crack an egg
+
 *** Create a prompt
 **** Ask the audience
 - What type of text to generate
