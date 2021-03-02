@@ -50,12 +50,12 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 | http://github1s.com/minimaxir/gpt-3-client                             |
 #+latex: }
 
-#+latex: {\small
+#+latex: {\footnotesize
 _*slides*_
 | http://github1s.com/semiosis/presentation-prompt-engineering-in-emacs |
 #+latex: }
 
-#+latex: {\small
+#+latex: {\footnotesize
 _*glossary*_
 | http://github1s.com/mullikine/glossaries-gh/blob/master/openai.txt     |
 #+latex: }
