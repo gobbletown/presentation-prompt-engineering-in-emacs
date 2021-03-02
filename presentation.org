@@ -49,8 +49,10 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 | github1s.com/semiosis/prompts                                   |
 | github1s.com/semiosis/prompt-engineering-patterns               |
 | github1s.com/minimaxir/gpt-3-client                             |
-| github1s.com/mullikine/glossaries-gh/blob/master/openai.txt     |
 #+latex: }
+
+_*glossary*_
+| github1s.com/mullikine/glossaries-gh/blob/master/openai.txt     |
 
 **** Demo
 #+latex: {\footnotesize
