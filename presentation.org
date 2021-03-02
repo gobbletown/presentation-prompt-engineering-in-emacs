@@ -97,6 +97,29 @@ completion must be below 2048 tokens (roughly
 - Speeds up development
 #+latex: }
 
+** Example prompts
+*** Some prompts I've made
+**** =generate-vim-command.prompt=
+#+latex: {\footnotesize
+#+BEGIN_SRC text -n :async :results verbatim code
+  Vim
+
+  Insert "Q: " at the start of the line
+  :%s/^/Q: /g.
+  ###
+  Remove whitespace from the start of each line
+  :%s/^\s*/\1/g
+  ###
+  Join each line with the next line
+  :1,$j
+  ###
+  Make all occurrences of Steve lowercase
+  :%s/Steve/steve/g
+  ###
+  <1>
+#+END_SRC
+#+latex: }
+
 * Explanations
 ** Using =pen.el=
 *** Prompt YAML format Part 1
@@ -144,28 +167,6 @@ completion must be below 2048 tokens (roughly
       Jane: Happy to help
       Parkman: Beta testing almost done
 #+END_SRC
-
-*** Some prompts I've made
-**** =generate-vim-command.prompt=
-#+latex: {\footnotesize
-#+BEGIN_SRC text -n :async :results verbatim code
-  Vim
-
-  Insert "Q: " at the start of the line
-  :%s/^/Q: /g.
-  ###
-  Remove whitespace from the start of each line
-  :%s/^\s*/\1/g
-  ###
-  Join each line with the next line
-  :1,$j
-  ###
-  Make all occurrences of Steve lowercase
-  :%s/Steve/steve/g
-  ###
-  <1>
-#+END_SRC
-#+latex: }
 
 * =semiosis=
 ** =pen.el=

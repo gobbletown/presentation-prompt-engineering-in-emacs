@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 14:04
+% Created 2021-03-02 Tue 14:05
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org6bd467e}
-\begin{frame}[label={sec:org76c1d0c},fragile]{Following along}
+\label{sec:org83d190c}
+\begin{frame}[label={sec:org4416cf6},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -58,10 +58,10 @@ github1s.com/minimaxir/gpt-3-client\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org15f807b}
+\label{sec:orgcadca74}
 \subsection{GPT-3}
-\label{sec:org7a19a34}
-\begin{frame}[label={sec:org5bc3888},fragile]{Text Generator}
+\label{sec:orgc8b1db9}
+\begin{frame}[label={sec:org46496e2},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -100,8 +100,8 @@ information explicit.
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:orgbc396da}
-\begin{frame}[label={sec:org2821980},fragile]{Prompt Engineering}
+\label{sec:org0e97a66}
+\begin{frame}[label={sec:orge65d1d1},fragile]{Prompt Engineering}
  \begin{block}{Characteristics}
 {\footnotesize
 \begin{itemize}
@@ -115,10 +115,10 @@ information explicit.
 \end{frame}
 
 \section{\texttt{semiosis}}
-\label{sec:orgd4e0368}
+\label{sec:org8753956}
 \subsection{\texttt{pen.el}}
-\label{sec:orgfe1c983}
-\begin{frame}[label={sec:org7af75e2},fragile]{\texttt{Prompts as functions}}
+\label{sec:org9ec928e}
+\begin{frame}[label={sec:orgf9a048a},fragile]{\texttt{Prompts as functions}}
  \begin{block}{\texttt{pen-generate-prompt-functions}}
 Generate prompt functions for the files in the
 prompts directory Function names are prefixed
@@ -129,8 +129,8 @@ with \texttt{pen-pf-} for easy searching.
 \end{frame}
 
 \subsection{\texttt{examplary}}
-\label{sec:orgc0961c1}
-\begin{frame}[label={sec:org4828dbc},fragile]{\texttt{examplary}: examples as functions}
+\label{sec:org5f40fe3}
+\begin{frame}[label={sec:orgde4ddf1},fragile]{\texttt{examplary}: examples as functions}
  An example-oriented DSL that can be used to
 construct and compose NLP tasks.
 
@@ -149,8 +149,10 @@ code a little more terse.
 \end{verbatim}
 }
 \end{block}
+\end{frame}
 
-\begin{block}{Analogy}
+\begin{frame}[label={sec:org5f586bd},fragile]{\texttt{examplary}: examples as functions}
+ \begin{block}{Analogy}
 {\footnotesize
 \begin{verbatim}
  1  (def analogy
@@ -172,10 +174,10 @@ code a little more terse.
 \end{frame}
 
 \section{Demonstrations}
-\label{sec:orgce1fc10}
+\label{sec:orgc284f94}
 \subsection{Using \texttt{pen.el}}
-\label{sec:org32bd1f1}
-\begin{frame}[label={sec:org9b2a63a},fragile]{Prompt YAML format Part 1}
+\label{sec:orgedb9f16}
+\begin{frame}[label={sec:orgde612e7},fragile]{Prompt YAML format Part 1}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
  1  title: "meeting bullet points to summary"
@@ -193,7 +195,7 @@ code a little more terse.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgdc075b5},fragile]{Prompt YAML format Part 2}
+\begin{frame}[label={sec:org838d68e},fragile]{Prompt YAML format Part 2}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  top-p: 1
@@ -213,7 +215,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org94e7495},fragile]{Prompt YAML format: Part 3}
+\begin{frame}[label={sec:org5125da9},fragile]{Prompt YAML format: Part 3}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  vars:
@@ -229,7 +231,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org2088ea9},fragile]{Some prompts I've made}
+\begin{frame}[label={sec:orgb0e651a},fragile]{Some prompts I've made}
  \begin{block}{\texttt{generate-vim-command.prompt}}
 {\footnotesize
 \begin{verbatim}
@@ -253,7 +255,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgf4a98ce}]{Create a prompt}
+\begin{frame}[label={sec:org5ca1ece}]{Create a prompt}
 \begin{block}{Ask the audience}
 \begin{itemize}
 \item What type of text to generate
@@ -265,10 +267,10 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{frame}
 
 \section{Appendix}
-\label{sec:org44c5dde}
+\label{sec:org8fcf766}
 \subsection{Additional reading}
-\label{sec:orgaa5d5d2}
-\begin{frame}[label={sec:org0dda783}]{Tutorials}
+\label{sec:org5ec5375}
+\begin{frame}[label={sec:org025bbbc}]{Tutorials}
 \begin{block}{Ruby}
 {\footnotesize
 \url{https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby}
