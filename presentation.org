@@ -150,6 +150,9 @@ http://github.com/semiosis/prompts/blob/master/prompts/sarcastic-response.prompt
 *** Design patterns
 Taken from Prompt Design 101.
 
+These are manual techniques which should be
+encoded in a DSL when generating prompts.
+
 **** Reflective description of the task
 State what the prompt does at the start At the
 start of the example we state in plain
@@ -177,6 +180,78 @@ also an easy to use stop sequence.
 Whatever separator you use, make sure that
 it’s clear to the API where an example starts
 and stops.
+
+*** Improving the classifier’s efficiency
+Now that we have a grasp of how to build a
+classifier, let's take that example and make
+it even more efficient so that we can use it
+to get multiple results back from one API
+call.
+
+#+BEGIN_SRC text -n :async :results verbatim code
+  This is a tweet sentiment classifier
+  Tweet: "I loved the new Batman movie!"
+  Sentiment: Positive
+  ###
+  Tweet: "I hate it when my phone battery dies"
+  Sentiment: Negative
+  ###
+  Tweet: "My day has been 👍"
+  Sentiment: Positive
+  ###
+  Tweet: "This is the link to the article"
+  Sentiment: Neutral
+  ###
+  Tweet text
+
+  1. "I loved the new Batman movie!"
+  2. "I hate it when my phone battery dies"
+  3. "My day has been 👍"
+  4. "This is the link to the article"
+  5. "This new music video blew my mind"
+
+  Tweet sentiment ratings:
+  1: Positive
+  2: Negative
+  3: Positive
+  4: Neutral
+  5: Positive
+  
+  ###
+  Tweet text
+  
+  "I can't stand homework"
+  "This sucks. I'm bored 😠"
+  "I can't wait for Halloween!!!"
+  "My cat is adorable ❤️❤️"
+  "I hate chocolate"
+  Tweet sentiment ratings:
+  1.
+#+END_SRC
+
+After showing the API how tweets are
+classified by sentiment we then provide it a
+list of tweets and then a list of sentiment
+ratings with the same number index. The API is
+able to pick up from the first example how a
+tweet is supposed to be classified. In the
+second example it sees how to apply this to a
+list of tweets. This allows the API to rate
+five (and even more) tweets in just one API
+call.
+
+It’s important to note that when you ask the
+API to create lists or evaluate text you need
+to pay extra attention to your probability
+settings (Top P or Temperature) to avoid
+drift.
+
+Make sure your probability setting is
+calibrated correctly by running multiple
+tests.
+
+Don’t make your list too long or the API is
+likely to drift.
 
 *** Techniques
 **** Query Reformulation
