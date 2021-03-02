@@ -131,9 +131,11 @@ completion must be below 2048 tokens (roughly
 #+latex: }
 
 **** Generation
-- Tweet Sentiment
-- Company categorization
-- Labeling parts of speech
+- Idea Generator
+
+**** Conversation
+- Q&A agent
+- Sarcastic chatbot
 
 *** Design patterns
 **** =generate-vim-command.prompt=
