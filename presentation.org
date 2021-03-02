@@ -127,3 +127,4 @@ completion must be below 2048 tokens (roughly
 #+latex: }
 
 *** Create a prompt
+**** Ask the audience
