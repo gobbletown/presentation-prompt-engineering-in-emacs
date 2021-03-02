@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 13:29
+% Created 2021-03-02 Tue 13:30
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org180b90b}
-\begin{frame}[label={sec:orgb0fd8a8},fragile]{Following along}
+\label{sec:org49147d4}
+\begin{frame}[label={sec:org909d7ac},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -58,10 +58,10 @@ github1s.com/minimaxir/gpt-3-client\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org7906af3}
+\label{sec:org7742457}
 \subsection{GPT-3}
-\label{sec:orgf30109b}
-\begin{frame}[label={sec:orgf122297},fragile]{Text Generator}
+\label{sec:org669f28c}
+\begin{frame}[label={sec:org193fd38},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -100,8 +100,8 @@ information explicit.
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:org787f1ba}
-\begin{frame}[label={sec:orge021ea3},fragile]{Prompt Engineering}
+\label{sec:org4bc2403}
+\begin{frame}[label={sec:orgb8a3e3d},fragile]{Prompt Engineering}
  \begin{block}{Characteristics}
 {\footnotesize
 \begin{itemize}
@@ -115,54 +115,58 @@ information explicit.
 \end{frame}
 
 \section{\texttt{semiosis}}
-\label{sec:org86bb913}
+\label{sec:org02c3b99}
 \subsection{\texttt{pen.el}}
-\label{sec:orga3e550c}
-\begin{frame}[label={sec:org223874c},fragile]{\texttt{Prompts as functions}}
+\label{sec:org2ebc9e8}
+\begin{frame}[label={sec:org9685b38},fragile]{\texttt{Prompts as functions}}
 \end{frame}
 
 \subsection{\texttt{examplary}}
-\label{sec:orge9df6e0}
+\label{sec:org5299ebb}
 
 \section{Demonstrations}
-\label{sec:org69270dd}
+\label{sec:orgce7175f}
 \subsection{Using \texttt{pen.el}}
-\label{sec:org901d04f}
-\begin{frame}[label={sec:orgabdb4c6},fragile]{Prompt YAML format Part 1}
+\label{sec:orgfad4bd0}
+\begin{frame}[label={sec:org17ab3e5},fragile]{Prompt YAML format Part 1}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
  1  title: "meeting bullet points to summary"
  2  prompt: |+
- 3      Convert my short hand into a first-hand account of the meeting:
- 4  
- 5      <1>
- 6  
- 7      Summary:
- 8  engine: "davinci-instruct-beta"
- 9  temperature: 0.7
-10  max-tokens: 60
+ 3      Convert my short hand into a first-hand
+ 4      account of the meeting:
+ 5  
+ 6      <1>
+ 7  
+ 8      Summary:
+ 9  engine: "davinci-instruct-beta"
+10  temperature: 0.7
+11  max-tokens: 60
 \end{verbatim}
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org347e426},fragile]{Prompt YAML format Part 2}
+\begin{frame}[label={sec:orgf93c203},fragile]{Prompt YAML format Part 2}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
- 1  top-p: 1
- 2  frequency-penalty: 0.0
- 3  presence-penalty: 0.0
- 4  best-of: 1
- 5  stop-sequences:
- 6  - "\n\n"
- 7  conversation-mode: no
- 8  # Keep stitching together until reaching this limit
- 9  # This allows a full response for answers which may need n*max-tokens to reach the stop-sequence.
-10  stitch-max: 0
+1  top-p: 1
+2  frequency-penalty: 0.0
+3  presence-penalty: 0.0
+4  best-of: 1
+5  stop-sequences:
+6  - "\n\n"
+7  conversation-mode: no
+8  stitch-max: 0
 \end{verbatim}
+
+\begin{description}
+\item[{stitch-max}] Keep stitching together until reaching this limit.
+This allows a full response for answers which may need n*max-tokens to reach the stop-sequence.
+\end{description}
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org8cb0034},fragile]{Prompt YAML format: Part 3}
+\begin{frame}[label={sec:org200a76a},fragile]{Prompt YAML format: Part 3}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  vars:
@@ -178,7 +182,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org7130590},fragile]{Some prompts I've made}
+\begin{frame}[label={sec:orgf0eb5ca},fragile]{Some prompts I've made}
  \begin{block}{\texttt{generate-vim-command.prompt}}
 {\footnotesize
 \begin{verbatim}
@@ -202,7 +206,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org8cf24fd}]{Create a prompt}
+\begin{frame}[label={sec:org4f7b9f9}]{Create a prompt}
 \begin{block}{Ask the audience}
 \begin{itemize}
 \item What type of text to generate
@@ -214,10 +218,10 @@ information explicit.
 \end{frame}
 
 \section{Appendix}
-\label{sec:orga81e6ca}
+\label{sec:org16ba227}
 \subsection{Additional reading}
-\label{sec:org12243cb}
-\begin{frame}[label={sec:org07652ab}]{Tutorials}
+\label{sec:org39e5d79}
+\begin{frame}[label={sec:org7e8c789}]{Tutorials}
 \begin{block}{Ruby}
 {\footnotesize
 \url{https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby}
