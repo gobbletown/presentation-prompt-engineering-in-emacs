@@ -110,7 +110,8 @@ completion must be below 2048 tokens (roughly
 #+BEGIN_SRC yaml -n :async :results verbatim code
   title: "meeting bullet points to summary"
   prompt: |+
-      Convert my short hand into a first-hand account of the meeting:
+      Convert my short hand into a first-hand
+      account of the meeting:
   
       <1>
   
