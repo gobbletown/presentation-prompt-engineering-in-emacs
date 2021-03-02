@@ -130,6 +130,7 @@ completion must be below 2048 tokens (roughly
 - http://github.com/semiosis/prompts/blob/master/prompts/keyword-extraction.prompt
 #+latex: }
 
+*** Tasks suitable for GPT-3
 **** Generation
 - Idea Generator
 
@@ -137,6 +138,7 @@ Come up with silly inventions.
 
 [[./silly-inventions.png]]
 
+*** Tasks suitable for GPT-3
 **** Conversation
 - Q&A agent
 - Sarcastic chatbot
