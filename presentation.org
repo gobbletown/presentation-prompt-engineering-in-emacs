@@ -43,12 +43,13 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 *** Following along
 **** Repositories for following along
 #+latex: {\footnotesize
-| github1s.com/mullikine/presentation-prompt-engineering-in-emacs |
-| github1s.com/semiosis/examplary                                 |
-| github1s.com/semiosis/pen.el                                    |
-| github1s.com/semiosis/prompts                                   |
-| github1s.com/semiosis/prompt-engineering-patterns               |
-| github1s.com/minimaxir/gpt-3-client |
+| github1s.com/mullikine/presentation-prompt-engineering-in-emacs         |
+| github1s.com/semiosis/examplary                                         |
+| github1s.com/semiosis/pen.el                                            |
+| github1s.com/semiosis/prompts                                           |
+| github1s.com/semiosis/prompt-engineering-patterns                       |
+| github1s.com/minimaxir/gpt-3-client                                     |
+| https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby |
 #+latex: }
 
 **** Demo
