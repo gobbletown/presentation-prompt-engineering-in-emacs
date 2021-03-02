@@ -148,26 +148,21 @@ http://github.com/semiosis/prompts/blob/master/prompts/sarcastic-response.prompt
 #+latex: }
 
 *** Design patterns
-**** =generate-vim-command.prompt=
-#+latex: {\footnotesize
-#+BEGIN_SRC text -n :async :results verbatim code
-  Vim
+**** Reflective description of the task
+State what the prompt does at the start At the
+start of the example we state in plain
+language what the classifier does: “
 
-  Insert "Q: " at the start of the line
-  :%s/^/Q: /g.
-  ###
-  Remove whitespace from the start of each line
-  :%s/^\s*/\1/g
-  ###
-  Join each line with the next line
-  :1,$j
-  ###
-  Make all occurrences of Steve lowercase
-  :%s/Steve/steve/g
-  ###
-  <1>
-#+END_SRC
-#+latex: }
+This is a tweet sentiment classifier.”
+
+By stating this up front
+
+it helps the API understand much more quickly
+what the goal of the response is supposed to
+be
+
+and you’ll end needing to provide fewer
+examples.
 
 * Explanations
 ** Using =pen.el=
