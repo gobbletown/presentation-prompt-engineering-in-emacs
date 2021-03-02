@@ -97,57 +97,7 @@ completion must be below 2048 tokens (roughly
 - Speeds up development
 #+latex: }
 
-* =semiosis=
-** =pen.el=
-*** =Prompts as functions=
-**** =pen-generate-prompt-functions=
-Generate prompt functions for the files in the
-prompts directory Function names are prefixed
-with =pen-pf-= for easy searching.
-
-http://github.com/semiosis/prompts
-
-** =examplary=
-*** =examplary=: examples as functions
-An example-oriented DSL that can be used to
-construct and compose NLP tasks.
-
-Why is a DSL needed for this? Just to make the
-code a little more terse.
-
-**** Regex
-https://github.com/pemistahl/grex
-
-#+latex: {\footnotesize
-#+BEGIN_SRC clojure -n :i clj :async :results verbatim code
-  (def regex
-    "example 1\nexample2" "^example [12]$"
-    "example 2\nexample3" "^example [23]$"
-    "pi4\npi5" "^pi[45]$")
-#+END_SRC
-#+latex: }
-
-*** =examplary=: examples as functions
-**** Analogy
-#+latex: {\footnotesize
-#+BEGIN_SRC clojure -n :i clj :async :results verbatim code
-  (def analogy
-    ;; Each line is a training example.
-    "NNs" "NNs are like genetic algorithms in
-    that both are systems that learn from
-    experience"
-    "Social media" "Social media is like a
-    market in that both are systems that
-    coordinate the actions of many
-    individuals.")
-
-  (def field
-    "chemistry" "study of chemicals"
-    "biology" "study of living things")
-#+END_SRC
-#+latex: }
-
-* Demonstrations
+* Explanations
 ** Using =pen.el=
 *** Prompt YAML format Part 1
 **** =meeting-bullets-to-summary.prompt=
@@ -217,6 +167,57 @@ https://github.com/pemistahl/grex
 #+END_SRC
 #+latex: }
 
+* =semiosis=
+** =pen.el=
+*** =Prompts as functions=
+**** =pen-generate-prompt-functions=
+Generate prompt functions for the files in the
+prompts directory Function names are prefixed
+with =pen-pf-= for easy searching.
+
+http://github.com/semiosis/prompts
+
+** =examplary=
+*** =examplary=: examples as functions
+An example-oriented DSL that can be used to
+construct and compose NLP tasks.
+
+Why is a DSL needed for this? Just to make the
+code a little more terse.
+
+**** Regex
+https://github.com/pemistahl/grex
+
+#+latex: {\footnotesize
+#+BEGIN_SRC clojure -n :i clj :async :results verbatim code
+  (def regex
+    "example 1\nexample2" "^example [12]$"
+    "example 2\nexample3" "^example [23]$"
+    "pi4\npi5" "^pi[45]$")
+#+END_SRC
+#+latex: }
+
+*** =examplary=: examples as functions
+**** Analogy
+#+latex: {\footnotesize
+#+BEGIN_SRC clojure -n :i clj :async :results verbatim code
+  (def analogy
+    ;; Each line is a training example.
+    "NNs" "NNs are like genetic algorithms in
+    that both are systems that learn from
+    experience"
+    "Social media" "Social media is like a
+    market in that both are systems that
+    coordinate the actions of many
+    individuals.")
+
+  (def field
+    "chemistry" "study of chemicals"
+    "biology" "study of living things")
+#+END_SRC
+#+latex: }
+
+* Demonstration
 *** Create a prompt
 **** Ask the audience
 - What type of text to generate
