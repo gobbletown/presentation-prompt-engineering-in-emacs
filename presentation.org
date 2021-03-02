@@ -136,6 +136,9 @@ completion must be below 2048 tokens (roughly
   stitch-max: 0
 #+END_SRC
 
++ stitch-max :: Keep stitching together until reaching this limit.
+                This allows a full response for answers which may need n*max-tokens to reach the stop-sequence.
+
 *** Prompt YAML format: Part 3
 **** =meeting-bullets-to-summary.prompt=
 #+BEGIN_SRC yaml -n :async :results verbatim code
