@@ -329,7 +329,6 @@ an associated schema, which defines the keys
 which are expected.
 #+latex: }
 
-** Using =pen.el=
 *** =pen.el=
 **** =pen.el= modes Part 2
 #+latex: {\footnotesize
