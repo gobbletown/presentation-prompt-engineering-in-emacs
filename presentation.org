@@ -43,7 +43,7 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 *** Following along
 **** Repositories for following along
 #+latex: {\footnotesize
-| github1s.com/mullikine/presentation-prompt-engineering-in-emacs |
+
 | github1s.com/semiosis/examplary                                 |
 | github1s.com/semiosis/pen.el                                    |
 | github1s.com/semiosis/prompts                                   |
@@ -51,8 +51,15 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 | github1s.com/minimaxir/gpt-3-client                             |
 #+latex: }
 
+_*slides*_
+#+latex: {\footnotesize
+| github1s.com/mullikine/presentation-prompt-engineering-in-emacs |
+#+latex: }
+
 _*glossary*_
+#+latex: {\footnotesize
 | github1s.com/mullikine/glossaries-gh/blob/master/openai.txt     |
+#+latex: }
 
 **** Demo
 #+latex: {\footnotesize
