@@ -135,6 +135,8 @@ completion must be below 2048 tokens (roughly
 
 Come up with silly inventions.
 
+[[./silly-inventions.png]]
+
 **** Conversation
 - Q&A agent
 - Sarcastic chatbot
