@@ -261,6 +261,7 @@ https://github.com/pemistahl/grex
 [[./complicate.png]]
 
 **** How to crack an egg
+[[./crack-an-egg.png]]
 
 *** Create a prompt
 **** Ask the audience
