@@ -51,13 +51,13 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 | github1s.com/minimaxir/gpt-3-client                             |
 #+latex: }
 
-_*slides*_
 #+latex: {\footnotesize
+_*slides*_
 | github1s.com/mullikine/presentation-prompt-engineering-in-emacs |
 #+latex: }
 
-_*glossary*_
 #+latex: {\footnotesize
+_*glossary*_
 | github1s.com/mullikine/glossaries-gh/blob/master/openai.txt     |
 #+latex: }
 
