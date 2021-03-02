@@ -114,6 +114,7 @@ construct and compose NLP tasks.
 Why is a DSL needed for this? Just to make the
 code a little more terse.
 
+**** Regex
 #+latex: {\footnotesize
 #+BEGIN_SRC clojure -n :i clj :async :results verbatim code
   (def regex
@@ -123,12 +124,18 @@ code a little more terse.
 #+END_SRC
 #+latex: }
 
+**** Analogy
 #+latex: {\footnotesize
 #+BEGIN_SRC clojure -n :i clj :async :results verbatim code
   (def analogy
     ;; Each line is a training example.
-    "Neural networks" "Neural networks are like genetic algorithms in that both are systems that learn from experience"
-    "Social media" "Social media is like a market in that both are systems that coordinate the actions of many individuals.")
+    "NNs" "NNs are like genetic algorithms in
+    that both are systems that learn from
+    experience"
+    "Social media" "Social media is like a
+    market in that both are systems that
+    coordinate the actions of many
+    individuals.")
 
   (def field
     "chemistry" "study of chemicals"
