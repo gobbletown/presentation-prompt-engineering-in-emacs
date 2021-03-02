@@ -111,7 +111,8 @@ http://github.com/semiosis/prompts
 An example-oriented DSL that can be used to
 construct and compose NLP tasks.
 
-Why is a DSL needed for this?
+Why is a DSL needed for this? Just to make the
+code a little more terse.
 
 #+BEGIN_SRC clojure -n :i clj :async :results verbatim code
   (def regex
