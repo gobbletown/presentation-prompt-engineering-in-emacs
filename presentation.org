@@ -308,7 +308,8 @@ a Language Model such as GPT-3.
 - Use GPT-3 as a search engine within emacs
 #+latex: }
 
-**** Modes
+*** =pen.el=
+**** =pen.el= modes Part 1
 #+latex: {\footnotesize
 ***** Prompt-Engineering Minor Mode
 =prompt-engineering-mode= is a global minor
@@ -326,7 +327,7 @@ which are expected.
 #+latex: }
 
 *** =pen.el=
-**** Modes
+**** =pen.el= modes Part 2
 #+latex: {\footnotesize
 ***** Pen Messenger Minor Mode
 =pen-messenger-mode= is a minor mode for
