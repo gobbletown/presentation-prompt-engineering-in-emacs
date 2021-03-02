@@ -162,22 +162,19 @@ These are manual techniques which should be
 encoded in a DSL when generating prompts.
 
 **** 1. Reflective description of the task
-State what the prompt does at the start At the
-start of the example we state in plain
+State what the prompt does at the start.
+
+At the start of the example we state in plain
 language what the classifier does:
 
 #+BEGIN_SRC text -n :async :results verbatim code
-  _This is a tweet sentiment classifier._
+  This is a tweet sentiment classifier.
 #+END_SRC
 
-By stating this up front
-
-it helps the API understand much more quickly
-what the goal of the response is supposed to
-be
-
-and you’ll end needing to provide fewer
-examples.
+By stating this up front, it helps the API
+understand much more quickly what the goal of
+the response is supposed to be and you’ll end
+needing to provide fewer examples.
 
 *** Design patterns
 Taken from Prompt Design 101.
