@@ -325,24 +325,22 @@ a Language Model such as GPT-3.
       which are expected.
 #+latex: }
 
+*** =pen.el=
 **** Modes
+#+latex: {\footnotesize
 ***** Pen Messenger Minor Mode
-=pen-messenger-mode= is a minor mode for
-enhancing an emacs-based messenger client with
-GPT-3 capabilities, such as emoji generation.
+      =pen-messenger-mode= is a minor mode for
+      enhancing an emacs-based messenger client with
+      GPT-3 capabilities, such as emoji generation.
 
 ***** Pen Conversation Mode
-=prompt-conversation-mode= is a major mode designed to facilitate
-ongoing conversation with a prompt-based GPT-3 chatbot.
+      =prompt-conversation-mode= is a major mode designed to facilitate
+      ongoing conversation with a prompt-based GPT-3 chatbot.
 
 ***** Training Mode
-The goal of this mode is to facilitate the workflow of training on OpenAI's
-API.
-
-****** Fine-tuning
-- http://github.com/mullikine/fine-tuning-gpt-3
-
-[[./fine-tuning/puns/README.org]]
+      The goal of this mode is to facilitate the workflow of training on OpenAI's
+      API.
+#+latex: }
 
 *** Prompt YAML format Part 1
 **** =meeting-bullets-to-summary.prompt=
