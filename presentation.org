@@ -105,8 +105,8 @@ completion must be below 2048 tokens (roughly
 
 * Demonstrations
 ** Using =pen.el=
-*** Prompt YAML format
-**** Prompt YAML format: Part 1
+*** Prompt YAML format Part 1
+**** =meeting-bullets-to-summary.prompt=
 #+BEGIN_SRC yaml -n :async :results verbatim code
   title: "meeting bullet points to summary"
   prompt: |+
@@ -120,7 +120,8 @@ completion must be below 2048 tokens (roughly
   max-tokens: 60
 #+END_SRC
 
-**** Prompt YAML format: Part 2
+*** Prompt YAML format Part 2
+**** =meeting-bullets-to-summary.prompt=
 #+BEGIN_SRC yaml -n :async :results verbatim code
   top-p: 1
   frequency-penalty: 0.0
@@ -134,7 +135,8 @@ completion must be below 2048 tokens (roughly
   stitch-max: 0
 #+END_SRC
 
-**** Prompt YAML format: Part 3
+*** Prompt YAML format: Part 3
+**** =meeting-bullets-to-summary.prompt=
 #+BEGIN_SRC yaml -n :async :results verbatim code
   vars:
   - "notes"
