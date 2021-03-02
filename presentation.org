@@ -129,6 +129,8 @@ completion must be below 2048 tokens (roughly
 
 *** Create a prompt
 **** Ask the audience
+- What type of text to generate
+  - Could be code, prose, etc.
 
 * Appendix
 ** Additional reading
