@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 14:07
+% Created 2021-03-02 Tue 14:24
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:orgdee57c9}
-\begin{frame}[label={sec:org1ccf75c},fragile]{Following along}
+\label{sec:org0abac80}
+\begin{frame}[label={sec:org876e5c4},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -58,10 +58,10 @@ github1s.com/minimaxir/gpt-3-client\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:orgdc910f1}
+\label{sec:org3db2532}
 \subsection{GPT-3}
-\label{sec:org9ab9355}
-\begin{frame}[label={sec:org79031dc},fragile]{Text Generator}
+\label{sec:org54e3004}
+\begin{frame}[label={sec:org32f79c1},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -100,8 +100,8 @@ information explicit.
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:orgd5f7fcf}
-\begin{frame}[label={sec:org1a0b519},fragile]{Prompt Engineering}
+\label{sec:org771c898}
+\begin{frame}[label={sec:orga759fa2},fragile]{Prompt Engineering}
  \begin{block}{Characteristics}
 {\footnotesize
 \begin{itemize}
@@ -114,65 +114,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\section{Explanations}
-\label{sec:org794ee66}
-\subsection{Using \texttt{pen.el}}
-\label{sec:orgd68ab27}
-\begin{frame}[label={sec:org628793a},fragile]{Prompt YAML format Part 1}
- \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
-\begin{verbatim}
- 1  title: "meeting bullet points to summary"
- 2  prompt: |+
- 3      Convert my short hand into a first-hand
- 4      account of the meeting:
- 5  
- 6      <1>
- 7  
- 8      Summary:
- 9  engine: "davinci-instruct-beta"
-10  temperature: 0.7
-11  max-tokens: 60
-\end{verbatim}
-\end{block}
-\end{frame}
-
-\begin{frame}[label={sec:org0bed1b5},fragile]{Prompt YAML format Part 2}
- \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
-\begin{verbatim}
-1  top-p: 1
-2  frequency-penalty: 0.0
-3  presence-penalty: 0.0
-4  best-of: 1
-5  stop-sequences:
-6  - "\n\n"
-7  conversation-mode: no
-8  stitch-max: 0
-\end{verbatim}
-
-\begin{description}
-\item[{stitch-max}] Keep stitching together until reaching this limit.
-This allows a full response for answers which may need n*max-tokens to reach the stop-sequence.
-\end{description}
-\end{block}
-\end{frame}
-
-\begin{frame}[label={sec:org917478e},fragile]{Prompt YAML format: Part 3}
- \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
-\begin{verbatim}
-1  vars:
-2  - "notes"
-3  examples:
-4  - |+
-5      Tom: Profits up 50%
-6      Jane: New servers are online
-7      Kjel: Need more time to fix software
-8      Jane: Happy to help
-9      Parkman: Beta testing almost done
-\end{verbatim}
-\end{block}
-\end{frame}
-
-\begin{frame}[label={sec:org97b702d},fragile]{Some prompts I've made}
+\begin{frame}[label={sec:org28ea63d},fragile]{Some prompts I've made}
  \begin{block}{\texttt{generate-vim-command.prompt}}
 {\footnotesize
 \begin{verbatim}
@@ -196,11 +138,115 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
+\begin{frame}[label={sec:orga0109bc}]{Tasks suitable for GPT-3}
+\begin{block}{Classificaation}
+\begin{itemize}
+\item Tweet Sentiment
+\item Company categorization
+\item Labeling parts of speech
+\end{itemize}
+
+{\footnotesize
+github.com/semiosis/prompts/blob/master/prompts/tweet-sentiment-classifier.prompt
+}
+\end{block}
+
+\begin{block}{Classificaation}
+\begin{itemize}
+\item Tweet Sentiment
+\item Company categorization
+\item Labeling parts of speech
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:orgafd785e},fragile]{Design patterns}
+ \begin{block}{\texttt{generate-vim-command.prompt}}
+{\footnotesize
+\begin{verbatim}
+ 1  Vim
+ 2  
+ 3  Insert "Q: " at the start of the line
+ 4  :%s/^/Q: /g.
+ 5  ###
+ 6  Remove whitespace from the start of each line
+ 7  :%s/^\s*/\1/g
+ 8  ###
+ 9  Join each line with the next line
+10  :1,$j
+11  ###
+12  Make all occurrences of Steve lowercase
+13  :%s/Steve/steve/g
+14  ###
+15  <1>
+\end{verbatim}
+}
+\end{block}
+\end{frame}
+
+\section{Explanations}
+\label{sec:orgd71c930}
+\subsection{Using \texttt{pen.el}}
+\label{sec:org1213b75}
+\begin{frame}[label={sec:org3122d47},fragile]{Prompt YAML format Part 1}
+ \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
+\begin{verbatim}
+ 1  title: "meeting bullet points to summary"
+ 2  prompt: |+
+ 3      Convert my short hand into a first-hand
+ 4      account of the meeting:
+ 5  
+ 6      <1>
+ 7  
+ 8      Summary:
+ 9  engine: "davinci-instruct-beta"
+10  temperature: 0.7
+11  max-tokens: 60
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:orgbaba773},fragile]{Prompt YAML format Part 2}
+ \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
+\begin{verbatim}
+1  top-p: 1
+2  frequency-penalty: 0.0
+3  presence-penalty: 0.0
+4  best-of: 1
+5  stop-sequences:
+6  - "\n\n"
+7  conversation-mode: no
+8  stitch-max: 0
+\end{verbatim}
+
+\begin{description}
+\item[{stitch-max}] Keep stitching together until reaching this limit.
+This allows a full response for answers which may need n*max-tokens to reach the stop-sequence.
+\end{description}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:orgcfbede6},fragile]{Prompt YAML format: Part 3}
+ \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
+\begin{verbatim}
+1  vars:
+2  - "notes"
+3  examples:
+4  - |+
+5      Tom: Profits up 50%
+6      Jane: New servers are online
+7      Kjel: Need more time to fix software
+8      Jane: Happy to help
+9      Parkman: Beta testing almost done
+\end{verbatim}
+\end{block}
+\end{frame}
+
 \section{\texttt{semiosis}}
-\label{sec:orge27c4d0}
+\label{sec:org0054370}
 \subsection{\texttt{pen.el}}
-\label{sec:orgd2de832}
-\begin{frame}[label={sec:org9eb7f70},fragile]{\texttt{Prompts as functions}}
+\label{sec:org35103e5}
+\begin{frame}[label={sec:org3236082},fragile]{\texttt{Prompts as functions}}
  \begin{block}{\texttt{pen-generate-prompt-functions}}
 Generate prompt functions for the files in the
 prompts directory Function names are prefixed
@@ -211,8 +257,8 @@ with \texttt{pen-pf-} for easy searching.
 \end{frame}
 
 \subsection{\texttt{examplary}}
-\label{sec:org0551551}
-\begin{frame}[label={sec:orgc281fbd},fragile]{\texttt{examplary}: examples as functions}
+\label{sec:org98ff68b}
+\begin{frame}[label={sec:org02c409f},fragile]{\texttt{examplary}: examples as functions}
  An example-oriented DSL that can be used to
 construct and compose NLP tasks.
 
@@ -233,7 +279,7 @@ code a little more terse.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org197cc20},fragile]{\texttt{examplary}: examples as functions}
+\begin{frame}[label={sec:orga657232},fragile]{\texttt{examplary}: examples as functions}
  \begin{block}{Analogy}
 {\footnotesize
 \begin{verbatim}
@@ -256,8 +302,8 @@ code a little more terse.
 \end{frame}
 
 \section{Demonstrations}
-\label{sec:org9464b2e}
-\begin{frame}[label={sec:org5c864df}]{Create a prompt}
+\label{sec:org66ddcb8}
+\begin{frame}[label={sec:org83d6286}]{Create a prompt}
 \begin{block}{Ask the audience}
 \begin{itemize}
 \item What type of text to generate
@@ -269,10 +315,10 @@ code a little more terse.
 \end{frame}
 
 \section{Appendix}
-\label{sec:org6f54d9c}
+\label{sec:org634b99d}
 \subsection{Additional reading}
-\label{sec:orgc9e1604}
-\begin{frame}[label={sec:orgea32dc4}]{Tutorials}
+\label{sec:orgdd78c80}
+\begin{frame}[label={sec:org0231fb6}]{Tutorials}
 \begin{block}{Ruby}
 {\footnotesize
 \url{https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby}

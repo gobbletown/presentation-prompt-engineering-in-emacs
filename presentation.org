@@ -120,13 +120,14 @@ completion must be below 2048 tokens (roughly
 #+latex: }
 
 *** Tasks suitable for GPT-3
-**** Classificaation
+**** Classification
 - Tweet Sentiment
 - Company categorization
 - Labeling parts of speech
 
 #+latex: {\footnotesize
-github.com/semiosis/prompts/blob/master/prompts/tweet-sentiment-classifier.prompt
+http://github.com/semiosis/prompts/blob/master/prompts/tweet-sentiment-classifier.prompt
+http://github.com/semiosis/prompts/blob/master/prompts/keyword-extraction.prompt
 #+latex: }
 
 **** Classificaation

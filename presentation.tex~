@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 14:05
+% Created 2021-03-02 Tue 14:07
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org83d190c}
-\begin{frame}[label={sec:org4416cf6},fragile]{Following along}
+\label{sec:orgdee57c9}
+\begin{frame}[label={sec:org1ccf75c},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -58,10 +58,10 @@ github1s.com/minimaxir/gpt-3-client\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:orgcadca74}
+\label{sec:orgdc910f1}
 \subsection{GPT-3}
-\label{sec:orgc8b1db9}
-\begin{frame}[label={sec:org46496e2},fragile]{Text Generator}
+\label{sec:org9ab9355}
+\begin{frame}[label={sec:org79031dc},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -100,8 +100,8 @@ information explicit.
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:org0e97a66}
-\begin{frame}[label={sec:orge65d1d1},fragile]{Prompt Engineering}
+\label{sec:orgd5f7fcf}
+\begin{frame}[label={sec:org1a0b519},fragile]{Prompt Engineering}
  \begin{block}{Characteristics}
 {\footnotesize
 \begin{itemize}
@@ -114,70 +114,11 @@ information explicit.
 \end{block}
 \end{frame}
 
-\section{\texttt{semiosis}}
-\label{sec:org8753956}
-\subsection{\texttt{pen.el}}
-\label{sec:org9ec928e}
-\begin{frame}[label={sec:orgf9a048a},fragile]{\texttt{Prompts as functions}}
- \begin{block}{\texttt{pen-generate-prompt-functions}}
-Generate prompt functions for the files in the
-prompts directory Function names are prefixed
-with \texttt{pen-pf-} for easy searching.
-
-\url{http://github.com/semiosis/prompts}
-\end{block}
-\end{frame}
-
-\subsection{\texttt{examplary}}
-\label{sec:org5f40fe3}
-\begin{frame}[label={sec:orgde4ddf1},fragile]{\texttt{examplary}: examples as functions}
- An example-oriented DSL that can be used to
-construct and compose NLP tasks.
-
-Why is a DSL needed for this? Just to make the
-code a little more terse.
-
-\begin{block}{Regex}
-\url{https://github.com/pemistahl/grex}
-
-{\footnotesize
-\begin{verbatim}
-1  (def regex
-2    "example 1\nexample2" "^example [12]$"
-3    "example 2\nexample3" "^example [23]$"
-4    "pi4\npi5" "^pi[45]$")
-\end{verbatim}
-}
-\end{block}
-\end{frame}
-
-\begin{frame}[label={sec:org5f586bd},fragile]{\texttt{examplary}: examples as functions}
- \begin{block}{Analogy}
-{\footnotesize
-\begin{verbatim}
- 1  (def analogy
- 2    ;; Each line is a training example.
- 3    "NNs" "NNs are like genetic algorithms in
- 4    that both are systems that learn from
- 5    experience"
- 6    "Social media" "Social media is like a
- 7    market in that both are systems that
- 8    coordinate the actions of many
- 9    individuals.")
-10  
-11  (def field
-12    "chemistry" "study of chemicals"
-13    "biology" "study of living things")
-\end{verbatim}
-}
-\end{block}
-\end{frame}
-
-\section{Demonstrations}
-\label{sec:orgc284f94}
+\section{Explanations}
+\label{sec:org794ee66}
 \subsection{Using \texttt{pen.el}}
-\label{sec:orgedb9f16}
-\begin{frame}[label={sec:orgde612e7},fragile]{Prompt YAML format Part 1}
+\label{sec:orgd68ab27}
+\begin{frame}[label={sec:org628793a},fragile]{Prompt YAML format Part 1}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
  1  title: "meeting bullet points to summary"
@@ -195,7 +136,7 @@ code a little more terse.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org838d68e},fragile]{Prompt YAML format Part 2}
+\begin{frame}[label={sec:org0bed1b5},fragile]{Prompt YAML format Part 2}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  top-p: 1
@@ -215,7 +156,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org5125da9},fragile]{Prompt YAML format: Part 3}
+\begin{frame}[label={sec:org917478e},fragile]{Prompt YAML format: Part 3}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  vars:
@@ -231,7 +172,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgb0e651a},fragile]{Some prompts I've made}
+\begin{frame}[label={sec:org97b702d},fragile]{Some prompts I've made}
  \begin{block}{\texttt{generate-vim-command.prompt}}
 {\footnotesize
 \begin{verbatim}
@@ -255,7 +196,68 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org5ca1ece}]{Create a prompt}
+\section{\texttt{semiosis}}
+\label{sec:orge27c4d0}
+\subsection{\texttt{pen.el}}
+\label{sec:orgd2de832}
+\begin{frame}[label={sec:org9eb7f70},fragile]{\texttt{Prompts as functions}}
+ \begin{block}{\texttt{pen-generate-prompt-functions}}
+Generate prompt functions for the files in the
+prompts directory Function names are prefixed
+with \texttt{pen-pf-} for easy searching.
+
+\url{http://github.com/semiosis/prompts}
+\end{block}
+\end{frame}
+
+\subsection{\texttt{examplary}}
+\label{sec:org0551551}
+\begin{frame}[label={sec:orgc281fbd},fragile]{\texttt{examplary}: examples as functions}
+ An example-oriented DSL that can be used to
+construct and compose NLP tasks.
+
+Why is a DSL needed for this? Just to make the
+code a little more terse.
+
+\begin{block}{Regex}
+\url{https://github.com/pemistahl/grex}
+
+{\footnotesize
+\begin{verbatim}
+1  (def regex
+2    "example 1\nexample2" "^example [12]$"
+3    "example 2\nexample3" "^example [23]$"
+4    "pi4\npi5" "^pi[45]$")
+\end{verbatim}
+}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org197cc20},fragile]{\texttt{examplary}: examples as functions}
+ \begin{block}{Analogy}
+{\footnotesize
+\begin{verbatim}
+ 1  (def analogy
+ 2    ;; Each line is a training example.
+ 3    "NNs" "NNs are like genetic algorithms in
+ 4    that both are systems that learn from
+ 5    experience"
+ 6    "Social media" "Social media is like a
+ 7    market in that both are systems that
+ 8    coordinate the actions of many
+ 9    individuals.")
+10  
+11  (def field
+12    "chemistry" "study of chemicals"
+13    "biology" "study of living things")
+\end{verbatim}
+}
+\end{block}
+\end{frame}
+
+\section{Demonstrations}
+\label{sec:org9464b2e}
+\begin{frame}[label={sec:org5c864df}]{Create a prompt}
 \begin{block}{Ask the audience}
 \begin{itemize}
 \item What type of text to generate
@@ -267,10 +269,10 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{frame}
 
 \section{Appendix}
-\label{sec:org8fcf766}
+\label{sec:org6f54d9c}
 \subsection{Additional reading}
-\label{sec:org5ec5375}
-\begin{frame}[label={sec:org025bbbc}]{Tutorials}
+\label{sec:orgc9e1604}
+\begin{frame}[label={sec:orgea32dc4}]{Tutorials}
 \begin{block}{Ruby}
 {\footnotesize
 \url{https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby}
