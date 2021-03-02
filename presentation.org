@@ -113,6 +113,13 @@ construct and compose NLP tasks.
 
 Why is a DSL needed for this?
 
+#+BEGIN_SRC clojure -n :i clj :async :results verbatim code
+  (def regex
+    "example 1\nexample2" "^example [12]$"
+    "example 2\nexample3" "^example [23]$"
+    "pi4\npi5" "^pi[45]$")
+#+END_SRC
+
 * Demonstrations
 ** Using =pen.el=
 *** Prompt YAML format Part 1
