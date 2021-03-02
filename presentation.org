@@ -295,6 +295,7 @@ responses.
 * Explanations
 ** Using =pen.el=
 *** =pen.el=
+**** =pen.el=: Prompt Engineering in emacs
 #+latex: {\footnotesize
 =pen.el= facilitates the creation,
 development, discovery and usage of prompts to
