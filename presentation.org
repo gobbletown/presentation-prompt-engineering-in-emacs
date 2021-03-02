@@ -133,9 +133,15 @@ completion must be below 2048 tokens (roughly
 **** Generation
 - Idea Generator
 
+Come up with silly inventions.
+
 **** Conversation
 - Q&A agent
 - Sarcastic chatbot
+
+#+latex: {\footnotesize
+http://github.com/semiosis/prompts/blob/master/prompts/sarcastic-response.prompt
+#+latex: }
 
 *** Design patterns
 **** =generate-vim-command.prompt=
