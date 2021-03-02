@@ -308,6 +308,7 @@ a Language Model such as GPT-3.
 - Use GPT-3 as a search engine within emacs
 #+latex: }
 
+** Using =pen.el=
 *** =pen.el=
 **** =pen.el= modes Part 1
 #+latex: {\footnotesize
@@ -328,6 +329,7 @@ an associated schema, which defines the keys
 which are expected.
 #+latex: }
 
+** Using =pen.el=
 *** =pen.el=
 **** =pen.el= modes Part 2
 #+latex: {\footnotesize
