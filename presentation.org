@@ -103,6 +103,8 @@ completion must be below 2048 tokens (roughly
 ** =examplary=
 
 * Demonstrations
-** 
+** Using =pen.el=
+*** Some prompts I've made
+- =generate-vim-command.prompt=
 
-** Create a prompt
+*** Create a prompt
