@@ -115,6 +115,8 @@ Why is a DSL needed for this? Just to make the
 code a little more terse.
 
 **** Regex
+https://github.com/pemistahl/grex
+
 #+latex: {\footnotesize
 #+BEGIN_SRC clojure -n :i clj :async :results verbatim code
   (def regex
