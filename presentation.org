@@ -97,8 +97,44 @@ completion must be below 2048 tokens (roughly
 - Speeds up development
 #+latex: }
 
-** Example prompt
 *** Some prompts I've made
+**** =generate-vim-command.prompt=
+#+latex: {\footnotesize
+#+BEGIN_SRC text -n :async :results verbatim code
+  Vim
+
+  Insert "Q: " at the start of the line
+  :%s/^/Q: /g.
+  ###
+  Remove whitespace from the start of each line
+  :%s/^\s*/\1/g
+  ###
+  Join each line with the next line
+  :1,$j
+  ###
+  Make all occurrences of Steve lowercase
+  :%s/Steve/steve/g
+  ###
+  <1>
+#+END_SRC
+#+latex: }
+
+*** Tasks suitable for GPT-3
+**** Classificaation
+- Tweet Sentiment
+- Company categorization
+- Labeling parts of speech
+
+#+latex: {\footnotesize
+github.com/semiosis/prompts/blob/master/prompts/tweet-sentiment-classifier.prompt
+#+latex: }
+
+**** Classificaation
+- Tweet Sentiment
+- Company categorization
+- Labeling parts of speech
+
+*** Design patterns
 **** =generate-vim-command.prompt=
 #+latex: {\footnotesize
 #+BEGIN_SRC text -n :async :results verbatim code
