@@ -256,6 +256,8 @@ https://github.com/pemistahl/grex
 #+latex: }
 
 * Demonstrations
+*** Something funny
+
 *** Create a prompt
 **** Ask the audience
 - What type of text to generate
