@@ -228,7 +228,6 @@ Sentiment: Neutral
 Tweet text
 #+END_SRC
 
-
 #+latex: }*** Design patterns
 Taken from Prompt Design 101.
 
@@ -262,31 +261,7 @@ Tweet text
 Tweet sentiment ratings:
 1.
 #+END_SRC
-
-
-#+latex: }After showing the API how tweets are
-classified by sentiment we then provide it a
-list of tweets and then a list of sentiment
-ratings with the same number index. The API is
-able to pick up from the first example how a
-tweet is supposed to be classified. In the
-second example it sees how to apply this to a
-list of tweets. This allows the API to rate
-five (and even more) tweets in just one API
-call.
-
-It’s important to note that when you ask the
-API to create lists or evaluate text you need
-to pay extra attention to your probability
-settings (Top P or Temperature) to avoid
-drift.
-
-Make sure your probability setting is
-calibrated correctly by running multiple
-tests.
-
-Don’t make your list too long or the API is
-likely to drift.
+#+latex: }
 
 *** Techniques
 **** Query Reformulation
