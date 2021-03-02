@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 14:51
+% Created 2021-03-02 Tue 14:54
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:orgf6a6742}
-\begin{frame}[label={sec:org48550d9},fragile]{Following along}
+\label{sec:org2b66a83}
+\begin{frame}[label={sec:orgc02dd0d},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 
@@ -75,10 +75,10 @@ github1s.com/mullikine/glossaries-gh/blob/master/openai.txt\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:orga255729}
+\label{sec:org958c2fc}
 \subsection{GPT-3}
-\label{sec:orgac8e9e4}
-\begin{frame}[label={sec:orgda8a5a3},fragile]{Text Generator}
+\label{sec:org4d7aee5}
+\begin{frame}[label={sec:orga8f00d3},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -117,8 +117,8 @@ information explicit.
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:org53449ab}
-\begin{frame}[label={sec:org13a5f6c},fragile]{Prompt Engineering}
+\label{sec:org8450b27}
+\begin{frame}[label={sec:orgf01dda3},fragile]{Prompt Engineering}
  \begin{block}{Characteristics}
 {\footnotesize
 \begin{itemize}
@@ -131,7 +131,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org65a70fc},fragile]{Some prompts I've made}
+\begin{frame}[label={sec:org14619fd},fragile]{Some prompts I've made}
  \begin{block}{\texttt{generate-vim-command.prompt}}
 {\footnotesize
 \begin{verbatim}
@@ -155,7 +155,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org664af39}]{Tasks suitable for GPT-3}
+\begin{frame}[label={sec:orge64695c}]{Tasks suitable for GPT-3}
 \begin{block}{Classification}
 \begin{itemize}
 \item Tweet Sentiment
@@ -172,7 +172,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org82b6fbb}]{Tasks suitable for GPT-3}
+\begin{frame}[label={sec:orgab6c9cc}]{Tasks suitable for GPT-3}
 \begin{block}{Generation}
 \begin{itemize}
 \item Idea Generator
@@ -186,7 +186,7 @@ Come up with silly inventions.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org795971a}]{Tasks suitable for GPT-3}
+\begin{frame}[label={sec:org78063ba}]{Tasks suitable for GPT-3}
 \begin{block}{Conversation}
 \begin{itemize}
 \item Q\&A agent
@@ -199,7 +199,7 @@ Come up with silly inventions.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgd6f9475},fragile]{Design patterns}
+\begin{frame}[label={sec:orgcf79e6b},fragile]{Design patterns}
  Taken from Prompt Design 101.
 
 These are manual techniques which should be
@@ -225,7 +225,7 @@ examples.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgb28636f},fragile]{Design patterns}
+\begin{frame}[label={sec:org66b2945},fragile]{Design patterns}
  Taken from Prompt Design 101.
 
 These are manual techniques which should be
@@ -242,14 +242,21 @@ Whatever separator you use, make sure that
 it’s clear to the API where an example starts
 and stops.
 \end{block}
+\end{frame}
 
-\begin{block}{Improving the classifier’s efficiency}
-Now that we have a grasp of how to build a
-classifier, let's take that example and make
-it even more efficient so that we can use it
-to get multiple results back from one API
-call.
+\begin{frame}[label={sec:org24a9a6c},fragile]{Design patterns}
+ Taken from Prompt Design 101.
 
+These are manual techniques which should be
+encoded in a DSL when generating prompts.
+
+\begin{block}{Improving the classifier’s efficiency Part 1}
+Make a prompt more efficient / cheaper.
+
+Design it to generate multiple results from
+one API call.
+
+{\footnotesize
 \begin{verbatim}
  1  This is a tweet sentiment classifier
  2  Tweet: "I loved the new Batman movie!"
@@ -265,59 +272,47 @@ call.
 12  Sentiment: Neutral
 13  ###
 14  Tweet text
-15  
-16  1. "I loved the new Batman movie!"
-17  2. "I hate it when my phone battery dies"
-18  3. "My day has been 👍"
-19  4. "This is the link to the article"
-20  5. "This new music video blew my mind"
-21  
-22  Tweet sentiment ratings:
-23  1: Positive
-24  2: Negative
-25  3: Positive
-26  4: Neutral
-27  5: Positive
-28  
-29  ###
-30  Tweet text
-31  
-32  "I can't stand homework"
-33  "This sucks. I'm bored 😠"
-34  "I can't wait for Halloween!!!"
-35  "My cat is adorable ❤️❤️"
-36  "I hate chocolate"
-37  Tweet sentiment ratings:
-38  1.
 \end{verbatim}
 
-After showing the API how tweets are
-classified by sentiment we then provide it a
-list of tweets and then a list of sentiment
-ratings with the same number index. The API is
-able to pick up from the first example how a
-tweet is supposed to be classified. In the
-second example it sees how to apply this to a
-list of tweets. This allows the API to rate
-five (and even more) tweets in just one API
-call.
+}*** Design patterns
+Taken from Prompt Design 101.
 
-It’s important to note that when you ask the
-API to create lists or evaluate text you need
-to pay extra attention to your probability
-settings (Top P or Temperature) to avoid
-drift.
+These are manual techniques which should be
+encoded in a DSL when generating prompts.
+\end{block}
 
-Make sure your probability setting is
-calibrated correctly by running multiple
-tests.
-
-Don’t make your list too long or the API is
-likely to drift.
+\begin{block}{Improving the classifier’s efficiency Part 2}
+{\footnotesize
+\begin{verbatim}
+ 1  1. "I loved the new Batman movie!"
+ 2  2. "I hate it when my phone battery dies"
+ 3  3. "My day has been 👍"
+ 4  4. "This is the link to the article"
+ 5  5. "This new music video blew my mind"
+ 6  
+ 7  Tweet sentiment ratings:
+ 8  1: Positive
+ 9  2: Negative
+10  3: Positive
+11  4: Neutral
+12  5: Positive
+13  
+14  ###
+15  Tweet text
+16  
+17  "I can't stand homework"
+18  "This sucks. I'm bored 😠"
+19  "I can't wait for Halloween!!!"
+20  "My cat is adorable ❤️❤️"
+21  "I hate chocolate"
+22  Tweet sentiment ratings:
+23  1.
+\end{verbatim}
+}
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org9dde39b}]{Techniques}
+\begin{frame}[label={sec:org4c3c927}]{Techniques}
 \begin{block}{Query Reformulation}
 \url{https://www.sciencedirect.com/topics/computer-science/query-reformulation}
 
@@ -337,10 +332,10 @@ responses.
 \end{frame}
 
 \section{Explanations}
-\label{sec:orgc228a95}
+\label{sec:orgaecd27e}
 \subsection{Using \texttt{pen.el}}
-\label{sec:org5d4d31d}
-\begin{frame}[label={sec:org98d70f3},fragile]{Prompt YAML format Part 1}
+\label{sec:orgff8755a}
+\begin{frame}[label={sec:orgefd0f4d},fragile]{Prompt YAML format Part 1}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
  1  title: "meeting bullet points to summary"
@@ -358,7 +353,7 @@ responses.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgdc347c6},fragile]{Prompt YAML format Part 2}
+\begin{frame}[label={sec:org1caa87c},fragile]{Prompt YAML format Part 2}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  top-p: 1
@@ -378,7 +373,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org89c3337},fragile]{Prompt YAML format: Part 3}
+\begin{frame}[label={sec:org3deaabf},fragile]{Prompt YAML format: Part 3}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  vars:
@@ -395,10 +390,10 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{frame}
 
 \section{\texttt{semiosis}}
-\label{sec:orgdf8d419}
+\label{sec:org8a3738a}
 \subsection{\texttt{pen.el}}
-\label{sec:org7f57516}
-\begin{frame}[label={sec:orgf7a7356},fragile]{\texttt{Prompts as functions}}
+\label{sec:orgbc5ad3f}
+\begin{frame}[label={sec:org41e8063},fragile]{\texttt{Prompts as functions}}
  \begin{block}{\texttt{pen-generate-prompt-functions}}
 Generate prompt functions for the files in the
 prompts directory Function names are prefixed
@@ -409,8 +404,8 @@ with \texttt{pen-pf-} for easy searching.
 \end{frame}
 
 \subsection{\texttt{examplary}}
-\label{sec:org0319c50}
-\begin{frame}[label={sec:org6255a45},fragile]{\texttt{examplary}: examples as functions}
+\label{sec:orgf098dc5}
+\begin{frame}[label={sec:orged7c79d},fragile]{\texttt{examplary}: examples as functions}
  An example-oriented DSL that can be used to
 construct and compose NLP tasks.
 
@@ -431,7 +426,7 @@ code a little more terse.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org4b5fb87},fragile]{\texttt{examplary}: examples as functions}
+\begin{frame}[label={sec:org7403a4c},fragile]{\texttt{examplary}: examples as functions}
  \begin{block}{Analogy}
 {\footnotesize
 \begin{verbatim}
@@ -454,8 +449,8 @@ code a little more terse.
 \end{frame}
 
 \section{Demonstrations}
-\label{sec:orgd7cb782}
-\begin{frame}[label={sec:orgc4d770b}]{Something funny}
+\label{sec:orgdf4c706}
+\begin{frame}[label={sec:orgd6acfc6}]{Something funny}
 \begin{block}{Vexate a simple instruction}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./complicate.png}
@@ -463,7 +458,7 @@ code a little more terse.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org3b18677}]{Something funny}
+\begin{frame}[label={sec:orgedd7c4d}]{Something funny}
 \begin{block}{How to crack an egg}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./crack-an-egg.png}
@@ -471,7 +466,7 @@ code a little more terse.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org35591a6}]{Create a prompt}
+\begin{frame}[label={sec:orgcd9392f}]{Create a prompt}
 \begin{block}{Ask the audience}
 \begin{itemize}
 \item What type of text to generate
@@ -483,10 +478,10 @@ code a little more terse.
 \end{frame}
 
 \section{Appendix}
-\label{sec:org6cae577}
+\label{sec:orgea88a13}
 \subsection{Additional reading}
-\label{sec:org01baad0}
-\begin{frame}[label={sec:org284d4d9}]{Tutorials}
+\label{sec:orgb1f509b}
+\begin{frame}[label={sec:org185613d}]{Tutorials}
 \begin{block}{Ruby}
 {\footnotesize
 \url{https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby}

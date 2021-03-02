@@ -228,7 +228,9 @@ Sentiment: Neutral
 Tweet text
 #+END_SRC
 
-#+latex: }*** Design patterns
+#+latex: }
+
+*** Design patterns
 Taken from Prompt Design 101.
 
 These are manual techniques which should be
