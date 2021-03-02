@@ -97,7 +97,7 @@ completion must be below 2048 tokens (roughly
 - Speeds up development
 #+latex: }
 
-** Example prompts
+** Example prompt
 *** Some prompts I've made
 **** =generate-vim-command.prompt=
 #+latex: {\footnotesize
