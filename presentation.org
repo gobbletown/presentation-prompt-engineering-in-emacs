@@ -198,6 +198,12 @@ Whatever separator you use, make sure that
 it’s clear to the API where an example starts
 and stops.
 
+*** Design patterns
+Taken from Prompt Design 101.
+
+These are manual techniques which should be
+encoded in a DSL when generating prompts.
+
 **** Improving the classifier’s efficiency
 Now that we have a grasp of how to build a
 classifier, let's take that example and make
