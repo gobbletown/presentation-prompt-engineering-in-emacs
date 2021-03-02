@@ -344,8 +344,8 @@ _*Pen Conversation Mode*_
 ongoing conversation with a prompt-based GPT-3 chatbot.
 
 _*GPT-3 Training Mode*_
-The goal of this mode is to facilitate the workflow of training on OpenAI's
-API.
+The goal of this mode is to facilitate the
+workflow of training on OpenAI's API.
 #+latex: }
 
 *** Prompt YAML format Part 1
