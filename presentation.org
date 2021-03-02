@@ -105,6 +105,25 @@ completion must be below 2048 tokens (roughly
 * Demonstrations
 ** Using =pen.el=
 *** Some prompts I've made
-- =generate-vim-command.prompt=
+**** =generate-vim-command.prompt=
+#+latex: {\footnotesize
+#+BEGIN_SRC text -n :async :results verbatim code
+  Vim
+
+  Insert "Q: " at the start of the line
+  :%s/^/Q: /g.
+  ###
+  Remove whitespace from the start of each line
+  :%s/^\s*/\1/g
+  ###
+  Join each line with the next line
+  :1,$j
+  ###
+  Make all occurrences of Steve lowercase
+  :%s/Steve/steve/g
+  ###
+  <1>
+#+END_SRC
+#+latex: }
 
 *** Create a prompt
