@@ -217,7 +217,7 @@ https://github.com/pemistahl/grex
 #+END_SRC
 #+latex: }
 
-* Demonstration
+* Demonstrations
 *** Create a prompt
 **** Ask the audience
 - What type of text to generate
