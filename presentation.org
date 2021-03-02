@@ -148,6 +148,8 @@ http://github.com/semiosis/prompts/blob/master/prompts/sarcastic-response.prompt
 #+latex: }
 
 *** Design patterns
+Taken from Prompt Design 101.
+
 **** Reflective description of the task
 State what the prompt does at the start At the
 start of the example we state in plain
