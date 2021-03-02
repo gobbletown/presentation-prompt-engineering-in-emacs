@@ -130,7 +130,7 @@ completion must be below 2048 tokens (roughly
 - http://github.com/semiosis/prompts/blob/master/prompts/keyword-extraction.prompt
 #+latex: }
 
-**** Classificaation
+**** Generation
 - Tweet Sentiment
 - Company categorization
 - Labeling parts of speech
