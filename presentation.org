@@ -131,8 +131,6 @@ completion must be below 2048 tokens (roughly
   stop-sequences:
   - "\n\n"
   conversation-mode: no
-  # Keep stitching together until reaching this limit
-  # This allows a full response for answers which may need n*max-tokens to reach the stop-sequence.
   stitch-max: 0
 #+END_SRC
 
