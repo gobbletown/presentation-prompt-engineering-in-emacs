@@ -49,7 +49,7 @@ https://tex.stackexchange.com/questions/327844/real-number-symbol-r-not-working/
 | github1s.com/semiosis/prompts                                           |
 | github1s.com/semiosis/prompt-engineering-patterns                       |
 | github1s.com/minimaxir/gpt-3-client                                     |
-| https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby |
+|  |
 #+latex: }
 
 **** Demo
@@ -129,3 +129,10 @@ completion must be below 2048 tokens (roughly
 
 *** Create a prompt
 **** Ask the audience
+
+* Appendix
+** Additional reading
+*** Tutorials
+#+latex: {\footnotesize
+https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby
+#+latex: }
