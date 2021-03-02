@@ -167,7 +167,9 @@ State what the prompt does at the start At the
 start of the example we state in plain
 language what the classifier does:
 
-_This is a tweet sentiment classifier._
+#+BEGIN_SRC text -n :async :results verbatim code
+  _This is a tweet sentiment classifier._
+#+END_SRC
 
 By stating this up front
 
