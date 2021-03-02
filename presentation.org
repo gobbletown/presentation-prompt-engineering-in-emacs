@@ -133,6 +133,7 @@ completion must be below 2048 tokens (roughly
 * Appendix
 ** Additional reading
 *** Tutorials
+**** Ruby
 #+latex: {\footnotesize
 https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby
 #+latex: }
