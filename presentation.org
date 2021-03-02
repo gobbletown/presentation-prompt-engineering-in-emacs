@@ -108,6 +108,10 @@ with =pen-pf-= for easy searching.
 http://github.com/semiosis/prompts
 
 ** =examplary=
+An example-oriented DSL that can be used to
+construct and compose NLP tasks.
+
+Why is a DSL needed for this?
 
 * Demonstrations
 ** Using =pen.el=
