@@ -108,7 +108,7 @@ with =pen-pf-= for easy searching.
 http://github.com/semiosis/prompts
 
 ** =examplary=
-*** examples as functions
+*** =examplary=: examples as functions
 An example-oriented DSL that can be used to
 construct and compose NLP tasks.
 
