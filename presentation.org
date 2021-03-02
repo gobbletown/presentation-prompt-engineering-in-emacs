@@ -312,12 +312,14 @@ a Language Model such as GPT-3.
 **** =pen.el= modes Part 1
 #+latex: {\footnotesize
 _*Prompt-Engineering Minor Mode*_
+
 =prompt-engineering-mode= is a global minor
 mode for emacs that provides keybindings for
 creating and executing prompts generally
 across emacs.
 
 _*Prompt Description Major Mode*_
+
 =prompt-description-mode= is a major mode for
 editing =.prompt= files.
 
