@@ -209,7 +209,7 @@ Make a prompt more efficient / cheaper.
 Design it to generate multiple results from
 one API call.
 
-#+latex: {\footnotesize
+#+latex: {\tiny
 #+BEGIN_SRC text -n :async :results verbatim code
 This is a tweet sentiment classifier
 Tweet: "I loved the new Batman movie!"
@@ -236,7 +236,7 @@ These are manual techniques which should be
 encoded in a DSL when generating prompts.
 
 **** Improving the classifier’s efficiency Part 2
-#+latex: {\footnotesize
+#+latex: {\tiny
 #+BEGIN_SRC text -n :async :results verbatim code
 1. "I loved the new Batman movie!"
 2. "I hate it when my phone battery dies"
