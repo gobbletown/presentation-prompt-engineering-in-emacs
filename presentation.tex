@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 14:28
+% Created 2021-03-02 Tue 14:30
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:orgc18ef50}
-\begin{frame}[label={sec:org02098dc},fragile]{Following along}
+\label{sec:org432d31f}
+\begin{frame}[label={sec:org4c42119},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -58,10 +58,10 @@ github1s.com/minimaxir/gpt-3-client\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org751a466}
+\label{sec:orgaba0240}
 \subsection{GPT-3}
-\label{sec:org632afb5}
-\begin{frame}[label={sec:orge03d98b},fragile]{Text Generator}
+\label{sec:orgfc07f40}
+\begin{frame}[label={sec:org48b9de5},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -100,8 +100,8 @@ information explicit.
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:orga2ca5bc}
-\begin{frame}[label={sec:org625466a},fragile]{Prompt Engineering}
+\label{sec:org2baede0}
+\begin{frame}[label={sec:orgac82c95},fragile]{Prompt Engineering}
  \begin{block}{Characteristics}
 {\footnotesize
 \begin{itemize}
@@ -114,7 +114,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgefba004},fragile]{Some prompts I've made}
+\begin{frame}[label={sec:org6260986},fragile]{Some prompts I've made}
  \begin{block}{\texttt{generate-vim-command.prompt}}
 {\footnotesize
 \begin{verbatim}
@@ -138,7 +138,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org77c2ffd}]{Tasks suitable for GPT-3}
+\begin{frame}[label={sec:org23fac67}]{Tasks suitable for GPT-3}
 \begin{block}{Classification}
 \begin{itemize}
 \item Tweet Sentiment
@@ -163,7 +163,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgb5fe47a},fragile]{Design patterns}
+\begin{frame}[label={sec:org39d43c2},fragile]{Design patterns}
  \begin{block}{\texttt{generate-vim-command.prompt}}
 {\footnotesize
 \begin{verbatim}
@@ -188,10 +188,10 @@ information explicit.
 \end{frame}
 
 \section{Explanations}
-\label{sec:orgc0ce717}
+\label{sec:org5dd76ca}
 \subsection{Using \texttt{pen.el}}
-\label{sec:org1ad8504}
-\begin{frame}[label={sec:org8e03869},fragile]{Prompt YAML format Part 1}
+\label{sec:orgec5373d}
+\begin{frame}[label={sec:orgfeaa9fa},fragile]{Prompt YAML format Part 1}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
  1  title: "meeting bullet points to summary"
@@ -209,7 +209,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org8fa3dc5},fragile]{Prompt YAML format Part 2}
+\begin{frame}[label={sec:org0b2b5cf},fragile]{Prompt YAML format Part 2}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  top-p: 1
@@ -229,7 +229,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org17f5f34},fragile]{Prompt YAML format: Part 3}
+\begin{frame}[label={sec:org0c31e9e},fragile]{Prompt YAML format: Part 3}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  vars:
@@ -246,10 +246,10 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{frame}
 
 \section{\texttt{semiosis}}
-\label{sec:org84dd527}
+\label{sec:org9fd4124}
 \subsection{\texttt{pen.el}}
-\label{sec:org5435422}
-\begin{frame}[label={sec:org9348dec},fragile]{\texttt{Prompts as functions}}
+\label{sec:orgf8d5241}
+\begin{frame}[label={sec:org1bea416},fragile]{\texttt{Prompts as functions}}
  \begin{block}{\texttt{pen-generate-prompt-functions}}
 Generate prompt functions for the files in the
 prompts directory Function names are prefixed
@@ -260,8 +260,8 @@ with \texttt{pen-pf-} for easy searching.
 \end{frame}
 
 \subsection{\texttt{examplary}}
-\label{sec:org974f2df}
-\begin{frame}[label={sec:org14d2ef0},fragile]{\texttt{examplary}: examples as functions}
+\label{sec:org52a6eb6}
+\begin{frame}[label={sec:org0b4f9f9},fragile]{\texttt{examplary}: examples as functions}
  An example-oriented DSL that can be used to
 construct and compose NLP tasks.
 
@@ -282,7 +282,7 @@ code a little more terse.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgac9ab09},fragile]{\texttt{examplary}: examples as functions}
+\begin{frame}[label={sec:org5be5b89},fragile]{\texttt{examplary}: examples as functions}
  \begin{block}{Analogy}
 {\footnotesize
 \begin{verbatim}
@@ -305,14 +305,22 @@ code a little more terse.
 \end{frame}
 
 \section{Demonstrations}
-\label{sec:org1d2d06f}
-\begin{frame}[label={sec:org750df54}]{Something funny}
+\label{sec:orgeb7a737}
+\begin{frame}[label={sec:org649cee0}]{Something funny}
+\begin{block}{Vexate a simple instruction}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./complicate.png}
 \end{center}
+\end{block}
+
+\begin{block}{How to crack an egg}
+\begin{center}
+\includegraphics[width=.9\linewidth]{./crack-an-egg.png}
+\end{center}
+\end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org90e7ede}]{Create a prompt}
+\begin{frame}[label={sec:orgd290648}]{Create a prompt}
 \begin{block}{Ask the audience}
 \begin{itemize}
 \item What type of text to generate
@@ -324,10 +332,10 @@ code a little more terse.
 \end{frame}
 
 \section{Appendix}
-\label{sec:orgc269dfb}
+\label{sec:org241f4b1}
 \subsection{Additional reading}
-\label{sec:orgc953f0e}
-\begin{frame}[label={sec:orgd6acd4d}]{Tutorials}
+\label{sec:org1a59a7d}
+\begin{frame}[label={sec:orgdeb0977}]{Tutorials}
 \begin{block}{Ruby}
 {\footnotesize
 \url{https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby}
