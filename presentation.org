@@ -257,6 +257,7 @@ https://github.com/pemistahl/grex
 
 * Demonstrations
 *** Something funny
+[[./complicate.png]]
 
 *** Create a prompt
 **** Ask the audience
