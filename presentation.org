@@ -178,6 +178,23 @@ Whatever separator you use, make sure that
 it’s clear to the API where an example starts
 and stops.
 
+*** Techniques
+**** Query Reformulation
+https://www.sciencedirect.com/topics/computer-science/query-reformulation
+
+You can improve the quality of the responses
+by making a longer more diverse list in your
+prompt.
+
+One way to do that is to start off with one
+example, let the API generate more and select
+the ones that you like best and add them to
+the list.
+
+A few more high-quality variations can
+dramatically improve the quality of the
+responses.
+
 * Explanations
 ** Using =pen.el=
 *** Prompt YAML format Part 1
