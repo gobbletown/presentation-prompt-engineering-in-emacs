@@ -180,7 +180,7 @@ encoded in a DSL when generating prompts.
 Example: =###=.
 
 You can use other characters or line breaks,
-but “###” works pretty consistently and is
+but =###= works pretty consistently and is
 also an easy to use stop sequence.
 
 Whatever separator you use, make sure that
