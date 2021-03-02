@@ -151,9 +151,9 @@ http://github.com/semiosis/prompts/blob/master/prompts/sarcastic-response.prompt
 **** Reflective description of the task
 State what the prompt does at the start At the
 start of the example we state in plain
-language what the classifier does: “
+language what the classifier does:
 
-This is a tweet sentiment classifier.”
+_This is a tweet sentiment classifier._
 
 By stating this up front
 
