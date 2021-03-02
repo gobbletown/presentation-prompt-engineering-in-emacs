@@ -203,7 +203,7 @@ Taken from Prompt Design 101.
 These are manual techniques which should be
 encoded in a DSL when generating prompts.
 
-**** Improving the classifier’s efficiency Part 1
+**** 3. Mutiplexer Part 1
 Make a prompt more efficient / cheaper.
 
 Design it to generate multiple results from
@@ -235,7 +235,7 @@ Taken from Prompt Design 101.
 These are manual techniques which should be
 encoded in a DSL when generating prompts.
 
-**** Improving the classifier’s efficiency Part 2
+**** 3. Mulitplexer Part 2
 #+latex: {\tiny
 #+BEGIN_SRC text -n :async :results verbatim code
 1. "I loved the new Batman movie!"
