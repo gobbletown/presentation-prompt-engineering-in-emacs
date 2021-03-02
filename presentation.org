@@ -101,6 +101,9 @@ completion must be below 2048 tokens (roughly
 ** =pen.el=
 *** =Prompts as functions=
 **** =pen-generate-prompt-functions=
+Generate prompt functions for the files in the
+prompts directory Function names are prefixed
+with =pen-pf-= for easy searching.
 
 ** =examplary=
 
