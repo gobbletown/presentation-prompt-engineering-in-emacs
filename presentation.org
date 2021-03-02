@@ -254,7 +254,18 @@ Tweet sentiment ratings:
 
 ###
 Tweet text
+#+END_SRC
+#+latex: }
 
+*** Design patterns
+Taken from Prompt Design 101.
+
+These are manual techniques which should be
+encoded in a DSL when generating prompts.
+
+**** Improving the classifier’s efficiency Part 3
+#+latex: {\footnotesize
+#+BEGIN_SRC text -n :async :results verbatim code
 "I can't stand homework"
 "This sucks. I'm bored 😠"
 "I can't wait for Halloween!!!"
