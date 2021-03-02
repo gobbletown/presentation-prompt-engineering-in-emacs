@@ -127,6 +127,7 @@ https://github.com/pemistahl/grex
 #+END_SRC
 #+latex: }
 
+*** =examplary=: examples as functions
 **** Analogy
 #+latex: {\footnotesize
 #+BEGIN_SRC clojure -n :i clj :async :results verbatim code

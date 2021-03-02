@@ -1,4 +1,4 @@
-% Created 2021-03-02 Tue 13:30
+% Created 2021-03-02 Tue 14:04
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -30,8 +30,8 @@
 \maketitle
 
 \section{Presentation}
-\label{sec:org49147d4}
-\begin{frame}[label={sec:org909d7ac},fragile]{Following along}
+\label{sec:org6bd467e}
+\begin{frame}[label={sec:org76c1d0c},fragile]{Following along}
  \begin{block}{Repositories for following along}
 {\footnotesize
 \begin{center}
@@ -58,10 +58,10 @@ github1s.com/minimaxir/gpt-3-client\\
 \end{frame}
 
 \section{Preliminaries}
-\label{sec:org7742457}
+\label{sec:org15f807b}
 \subsection{GPT-3}
-\label{sec:org669f28c}
-\begin{frame}[label={sec:org193fd38},fragile]{Text Generator}
+\label{sec:org7a19a34}
+\begin{frame}[label={sec:org5bc3888},fragile]{Text Generator}
  \begin{block}{Background knowledge}
 {\footnotesize
 \begin{itemize}
@@ -100,8 +100,8 @@ information explicit.
 \end{frame}
 
 \subsection{A new programming paradigm}
-\label{sec:org4bc2403}
-\begin{frame}[label={sec:orgb8a3e3d},fragile]{Prompt Engineering}
+\label{sec:orgbc396da}
+\begin{frame}[label={sec:org2821980},fragile]{Prompt Engineering}
  \begin{block}{Characteristics}
 {\footnotesize
 \begin{itemize}
@@ -115,20 +115,67 @@ information explicit.
 \end{frame}
 
 \section{\texttt{semiosis}}
-\label{sec:org02c3b99}
+\label{sec:orgd4e0368}
 \subsection{\texttt{pen.el}}
-\label{sec:org2ebc9e8}
-\begin{frame}[label={sec:org9685b38},fragile]{\texttt{Prompts as functions}}
+\label{sec:orgfe1c983}
+\begin{frame}[label={sec:org7af75e2},fragile]{\texttt{Prompts as functions}}
+ \begin{block}{\texttt{pen-generate-prompt-functions}}
+Generate prompt functions for the files in the
+prompts directory Function names are prefixed
+with \texttt{pen-pf-} for easy searching.
+
+\url{http://github.com/semiosis/prompts}
+\end{block}
 \end{frame}
 
 \subsection{\texttt{examplary}}
-\label{sec:org5299ebb}
+\label{sec:orgc0961c1}
+\begin{frame}[label={sec:org4828dbc},fragile]{\texttt{examplary}: examples as functions}
+ An example-oriented DSL that can be used to
+construct and compose NLP tasks.
+
+Why is a DSL needed for this? Just to make the
+code a little more terse.
+
+\begin{block}{Regex}
+\url{https://github.com/pemistahl/grex}
+
+{\footnotesize
+\begin{verbatim}
+1  (def regex
+2    "example 1\nexample2" "^example [12]$"
+3    "example 2\nexample3" "^example [23]$"
+4    "pi4\npi5" "^pi[45]$")
+\end{verbatim}
+}
+\end{block}
+
+\begin{block}{Analogy}
+{\footnotesize
+\begin{verbatim}
+ 1  (def analogy
+ 2    ;; Each line is a training example.
+ 3    "NNs" "NNs are like genetic algorithms in
+ 4    that both are systems that learn from
+ 5    experience"
+ 6    "Social media" "Social media is like a
+ 7    market in that both are systems that
+ 8    coordinate the actions of many
+ 9    individuals.")
+10  
+11  (def field
+12    "chemistry" "study of chemicals"
+13    "biology" "study of living things")
+\end{verbatim}
+}
+\end{block}
+\end{frame}
 
 \section{Demonstrations}
-\label{sec:orgce7175f}
+\label{sec:orgce1fc10}
 \subsection{Using \texttt{pen.el}}
-\label{sec:orgfad4bd0}
-\begin{frame}[label={sec:org17ab3e5},fragile]{Prompt YAML format Part 1}
+\label{sec:org32bd1f1}
+\begin{frame}[label={sec:org9b2a63a},fragile]{Prompt YAML format Part 1}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
  1  title: "meeting bullet points to summary"
@@ -146,7 +193,7 @@ information explicit.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgf93c203},fragile]{Prompt YAML format Part 2}
+\begin{frame}[label={sec:orgdc075b5},fragile]{Prompt YAML format Part 2}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  top-p: 1
@@ -166,7 +213,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org200a76a},fragile]{Prompt YAML format: Part 3}
+\begin{frame}[label={sec:org94e7495},fragile]{Prompt YAML format: Part 3}
  \begin{block}{\texttt{meeting-bullets-to-summary.prompt}}
 \begin{verbatim}
 1  vars:
@@ -182,7 +229,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgf0eb5ca},fragile]{Some prompts I've made}
+\begin{frame}[label={sec:org2088ea9},fragile]{Some prompts I've made}
  \begin{block}{\texttt{generate-vim-command.prompt}}
 {\footnotesize
 \begin{verbatim}
@@ -206,7 +253,7 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org4f7b9f9}]{Create a prompt}
+\begin{frame}[label={sec:orgf4a98ce}]{Create a prompt}
 \begin{block}{Ask the audience}
 \begin{itemize}
 \item What type of text to generate
@@ -218,10 +265,10 @@ This allows a full response for answers which may need n*max-tokens to reach the
 \end{frame}
 
 \section{Appendix}
-\label{sec:org16ba227}
+\label{sec:org44c5dde}
 \subsection{Additional reading}
-\label{sec:org39e5d79}
-\begin{frame}[label={sec:org7e8c789}]{Tutorials}
+\label{sec:orgaa5d5d2}
+\begin{frame}[label={sec:org0dda783}]{Tutorials}
 \begin{block}{Ruby}
 {\footnotesize
 \url{https://www.twilio.com/blog/generating-cooking-recipes-openai-gpt3-ruby}
